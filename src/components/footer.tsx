@@ -152,7 +152,7 @@ export function Footer() {
         <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 px-6">
           {/* Logo */}
           <div className="w-48 transform transition-transform hover:scale-105 duration-300">
-            <Link href="/">
+            <Link href="/#home">
               <img
                 src="/assets/logos/footer-logo.png"
                 alt="OnlyModels logo"

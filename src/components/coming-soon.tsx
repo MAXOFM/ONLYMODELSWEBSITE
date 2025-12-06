@@ -43,7 +43,7 @@ export function ComingSoon({ title, description }: ComingSoonProps) {
                 </p>
 
                 <Link
-                    href="/"
+                    href="/#home"
                     className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-105"
                 >
                     <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

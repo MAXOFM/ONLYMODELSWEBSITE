@@ -22,7 +22,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40">
+    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40">
       <div className="absolute inset-0 z-0">
         <InteractiveHeroBackground />
       </div>
