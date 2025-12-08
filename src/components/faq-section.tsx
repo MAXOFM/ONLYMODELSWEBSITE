@@ -158,9 +158,9 @@ export function FAQSection() {
                 type="button"
                 aria-expanded={openIndex === index}
                 onClick={() => toggleFAQ(index)}
-                className="flex w-full items-center justify-between gap-6 rounded-[26px] bg-background/70 px-6 py-5 text-left transition hover:bg-background/90 cursor-pointer"
+                className="grid grid-cols-[auto_44px] w-full items-center justify-between gap-6 rounded-[26px] bg-background/70 px-6 py-5 text-left transition hover:bg-background/90 cursor-pointer"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-center gap-4 max-[500px]:items-start">
                   <span className="text-sm font-semibold text-foreground/40">
                     {String(index + 1).padStart(2, "0")}
                   </span>
