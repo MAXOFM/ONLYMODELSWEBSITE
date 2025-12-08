@@ -253,7 +253,7 @@ export function ServicesDetail() {
                                     </div> */}
                                     <motion.div className="relative inline-flex">
                                         <motion.h3
-                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl"
+                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl max-[500px]:text-[35px]"
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, amount: 0.6 }}
@@ -272,7 +272,7 @@ export function ServicesDetail() {
                                             }}
                                         >
                                             <motion.span
-                                                className="inline-flex flex-wrap gap-y-1"
+                                                className="inline-flex flex-wrap gap-y-1 "
                                                 initial="hidden"
                                                 whileInView="visible"
                                                 viewport={{ once: true, amount: 0.6 }}
@@ -291,7 +291,7 @@ export function ServicesDetail() {
                                         </motion.h3>
                                     </motion.div>
                                 </div>
-                                <div className="space-y-2 text-lg leading-relaxed text-muted-foreground text-left max-[1200px]:p-[10%]  max-[500px]:p-[5%]">
+                                <div className="space-y-2 text-lg leading-relaxed text-muted-foreground text-left max-[1200px]:p-[10%]  max-[500px]:p-[2%] max-[500px]:text-[15px]">
                                     {service.content.map((paragraph, i) => (
                                         <p key={i}>{paragraph}</p>
                                     ))}

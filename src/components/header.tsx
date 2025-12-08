@@ -81,7 +81,7 @@ export function Header() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-6 z-30 flex justify-center px-4">
-      <div className="nav-shell pointer-events-auto flex items-center gap-3 w-full max-w-[1350px] justify-between">
+      <div className="nav-shell pointer-events-auto flex items-center gap-3 w-full max-w-[1350px] justify-between max-[500px]:px-4 max-[500px]:rounded-full max-[500px]:border-2 max-w-[500px]:border-white/10 max-[500px]:bg-white/5 max-[500px]:backdrop-blur-md"> 
         <div className="relative z-50 shrink-0 transition-transform duration-300 hover:scale-105">
           <div className="pointer-events-none absolute inset-0 -z-10 scale-[1.8] rounded-full bg-accent/40 blur-[100px]" />
           <Link href="/#home">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Handshake, Lock, Radar, ScrollText } from "lucide-react";
 import { useState } from "react";
+import StartJourneyButton from "./ui/start-journey-button";
 
 const transparencyPoints = [
   {
@@ -190,6 +191,9 @@ export function TransparencySection() {
            With OnlyModels, you stay in control and we take care of the heavy work so you can focus on growing.
           </p>
         </motion.div>
+        <div className="flex justify-center my-10">
+          <StartJourneyButton />
+        </div>
       </div>
     </section>
   );

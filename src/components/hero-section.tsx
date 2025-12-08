@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatedCTA } from "@/components/animated-cta-button";
 import { HeroPhraseAnimations } from "@/components/hero-phrase-animations";
@@ -15,12 +14,6 @@ const rotatingPhrases = [
 ];
 
 export function HeroSection() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40">
       <div className="absolute inset-0 z-0">
@@ -28,10 +21,11 @@ export function HeroSection() {
       </div>
       <div className="pointer-events-none relative z-10 flex w-full justify-center mb-8 md:absolute md:top-24 md:mb-0">
         <motion.div
-          initial={mounted ? { opacity: 0, scale: 0.85 } : false}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center max-[500px]:px-[35px]"
         >
           <div className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-[120px]" />
           <Image
@@ -48,14 +42,16 @@ export function HeroSection() {
 
       <div className="nav-shell relative z-10 mt-10 flex flex-col items-center gap-12 md:mt-28 md:gap-12 px-6 text-center md:flex-col md:text-center xl:mt-0 xl:flex-row xl:gap-28 xl:text-left">
         <motion.div
-          initial={mounted ? { opacity: 0, x: -50, filter: "blur(10px)" } : false}
-          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-1 flex-col items-center gap-6 md:items-center xl:items-start"
         >
           <motion.div
-            initial={mounted ? { opacity: 0, y: 20 } : false}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="glass-pill px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-secondary shadow-[0_0_20px_rgba(255,20,147,0.3)]"
           >
@@ -83,8 +79,9 @@ export function HeroSection() {
           </p>
 
           <motion.div
-            initial={mounted ? { opacity: 0, y: 20 } : false}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center xl:justify-start xl:items-start"
           >
@@ -93,8 +90,9 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          initial={mounted ? { opacity: 0, scale: 0.8, rotate: 5 } : false}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut", type: "spring", bounce: 0.4 }}
           className="relative flex-1 flex justify-center w-full md:justify-center md:mt-8 xl:mt-0 xl:justify-end md:ml-0 xl:-ml-8 2xl:ml-0"
         >
