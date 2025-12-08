@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Target, Rocket, Gem, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
+import StartJourneyButton from "./ui/start-journey-button";
 
 const trustPoints = [
     {
@@ -228,6 +229,9 @@ export function WhyOnlyModelsSection() {
                         </motion.div>
                     ))}
                 </motion.div>
+                <div className="flex justify-center ">
+                    <StartJourneyButton/>
+                </div>
             </div>
         </section>
     );

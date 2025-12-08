@@ -347,6 +347,7 @@ export function ComprehensiveGrowth() {
                         </motion.div>
                     );
                 })}
+
             </div>
         </section>
     );

@@ -6,6 +6,7 @@ import { HeroPhraseAnimations } from "@/components/hero-phrase-animations";
 import { InteractiveHeroBackground } from "@/components/interactive-hero-background";
 import { HeroVisuals } from "@/components/hero-visuals";
 import { motion } from "framer-motion";
+import StartJourneyButton from "./ui/start-journey-button";
 
 const rotatingPhrases = [
   "Without Stress",
@@ -89,7 +90,10 @@ function HeroSection() {
             suppressHydrationWarning
             className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center xl:justify-start xl:items-start"
           >
-            <AnimatedCTA href="#apply" text="APPLY NOW" />
+            {/* <AnimatedCTA href="#apply" text="APPLY NOW" /> */}
+            <div className="flex justify-center mt-5">
+              <StartJourneyButton/>
+          </div>
           </motion.div>
         </motion.div>
 

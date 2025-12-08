@@ -3,6 +3,7 @@
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView, type Variants } from "framer-motion";
+import StartJourneyButton from "./ui/start-journey-button"
 
 const struggles = [
   {
@@ -243,6 +244,9 @@ export function RealStrugglesSection() {
             creating while we engineer the growth.
           </p>
         </motion.div>
+        <div className="flex justify-center mt-5">
+          <StartJourneyButton/>
+      </div>
       </div>
     </section>
   );

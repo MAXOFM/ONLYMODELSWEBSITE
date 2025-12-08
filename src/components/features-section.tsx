@@ -188,7 +188,7 @@ function RevenueGraph() {
 export function FeaturesSection() {
   return (
     <section
-      className="features-section mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-5 py-0 max-[500px]:py-[20px]"
+      className="features-section mx-auto flex gap-6 w-full max-w-6xl flex-col items-center justify-center px-5 py-0 max-[500px]:py-[20px]"
       id="features"
       data-section="features"
       aria-label="Platform capabilities"
@@ -308,6 +308,9 @@ export function FeaturesSection() {
           </motion.div> */}
         {/* </div> */}
       {/* </motion.div> */}
+      <div className="flex justify-center mt-5">
+          <StartJourneyButton/>
+      </div>
     </section>
   );
 }

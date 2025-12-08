@@ -2,6 +2,7 @@
 
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import StartJourneyButton from "./ui/start-journey-button";
 
 const brands = [
   { name: "AVN", tagline: "Adult Video News", logo: "/assets/brand-svgs/avn-logo.svg" },
@@ -136,6 +137,7 @@ export function FeaturedSection() {
           </div>
         </div>
       </motion.div>
+
     </section>
   );
 }
