@@ -197,7 +197,7 @@ export function FAQSection() {
                     transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
                   >
                     <div className="border-t border-white/10 px-6 pb-6 pt-4">
-                      <p className="text-base leading-relaxed text-muted-foreground">{faq.answer}</p>
+                      <p className="text-base leading-relaxed text-muted-foreground max-[500px]:tex-[15px]">{faq.answer}</p>
                     </div>
                   </motion.div>
                 )}
