@@ -17,6 +17,7 @@ import { TransparencySection } from "@/components/transparency-section";
 import { WhyOnlyModelsSection } from "@/components/why-onlymodels-section";
 import { WorkflowSection } from "@/components/workflow-section";
 import { ReferralSection } from "@/components/referral";
+import { FormSection } from "@/components/form-section";
 
 export type PageType = "home" | "referral"| "how-we-work" |"faq";
 
@@ -53,6 +54,7 @@ export function HomeRoot({ pageType = "home", initialSection }: HomeRootProps) {
         
         <TestimonialsSection />
         <CallToActionSection />
+        <FormSection/>
           </>
         )}
 
