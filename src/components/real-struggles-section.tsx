@@ -107,7 +107,7 @@ export function RealStrugglesSection() {
 
   return (
     <section
-      className="real-struggles-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]"
+      className="real-struggles-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[20px]"
       id="real-struggles"
       data-section="real-struggles"
       ref={sectionRef}

@@ -129,7 +129,7 @@ export function WorkflowSection() {
   return (
     <section
       ref={sectionRef}
-      className="workflow-section mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 py-24 my-20 max-[500px]:py-[8px]"
+      className="workflow-section mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 py-24 my-20 max-[500px]:py-[20px]"
       id="workflow"
       data-section="workflow"
     >

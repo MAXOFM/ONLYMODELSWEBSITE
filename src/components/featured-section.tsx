@@ -30,7 +30,7 @@ export function FeaturedSection() {
 
   return (
     <section
-      className="featured-section relative z-10 mx-auto w-full max-w-6xl px-5 py-24 max-[500px]:py-[8px]"
+      className="featured-section relative z-10 mx-auto w-full max-w-6xl px-5 py-24 max-[500px]:py-[20px]"
       id="featured"
       data-section="featured"
       ref={sectionRef}

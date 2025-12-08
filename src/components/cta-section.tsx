@@ -62,7 +62,7 @@ export function CallToActionSection() {
 
   return (
     <section
-      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
+      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[20px]"
       id="cta"
       data-section="cta"
       ref={sectionRef}
@@ -78,7 +78,7 @@ export function CallToActionSection() {
             mass: 1.2,
             delay: 0.1
           }}
-          className="cta-primary relative overflow-hidden rounded-[48px] border border-white/10 bg-gradient-to-br from-background/80 via-background/60 to-background/80 p-10 text-center shadow-[0_35px_140px_rgba(236,72,153,0.25)] will-change-transform"
+          className="cta-primary relative overflow-hidden rounded-[48px] border border-white/10 bg-gradient-to-br from-background/80 via-background/60 to-background/80 p-10 text-center shadow-[0_35px_140px_rgba(236,72,153,0.25)] will-change-transform max-[500px]:px-[15px]"
         >
           <div className="pointer-events-none absolute inset-0 opacity-90">
             <div className="absolute -left-32 top-0 h-80 w-80 rounded-full bg-accent/30 blur-[180px]" />

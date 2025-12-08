@@ -13,9 +13,9 @@ const rotatingPhrases = [
   "On Autopilot Nights",
 ];
 
-export function HeroSection() {
+function HeroSection() {
   return (
-    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40 max-[500px]:pt-[8px]">
+    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40 max-[500px]:py-[20px]">
       <div className="absolute inset-0 z-0">
         <InteractiveHeroBackground />
       </div>
@@ -25,6 +25,7 @@ export function HeroSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          suppressHydrationWarning
           className="relative flex items-center justify-center max-[500px]:px-[35px]"
         >
           <div className="absolute inset-0 -z-10 scale-125 rounded-full bg-accent/20 blur-[120px]" />
@@ -54,6 +55,7 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            suppressHydrationWarning
             className="glass-pill px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-secondary shadow-[0_0_20px_rgba(255,20,147,0.3)]"
           >
             The Agency OS for Top 0.1%
@@ -84,6 +86,7 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
+            suppressHydrationWarning
             className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center xl:justify-start xl:items-start"
           >
             <AnimatedCTA href="#apply" text="APPLY NOW" />
@@ -95,6 +98,7 @@ export function HeroSection() {
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut", type: "spring", bounce: 0.4 }}
+          suppressHydrationWarning
           className="relative flex-1 flex justify-center w-full md:justify-center md:mt-8 xl:mt-0 xl:justify-end md:ml-0 xl:-ml-8 2xl:ml-0"
         >
           <HeroVisuals />
@@ -103,3 +107,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+export { HeroSection };

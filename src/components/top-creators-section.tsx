@@ -40,7 +40,7 @@ export function TopCreatorsSection() {
         <section
             id="growth"
             data-section="growth"
-            className="top-creators-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
+            className="top-creators-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[20px]"
         >
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
                 {/* Left Column: Text Content */}
@@ -60,6 +60,7 @@ export function TopCreatorsSection() {
                             }
                         }
                     }}
+                    suppressHydrationWarning
                     className="top-creators-copy space-y-8 text-center md:text-left"
                 >
                     {/* Main Heading with Animation */}
@@ -109,6 +110,7 @@ export function TopCreatorsSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    suppressHydrationWarning
                     className="relative flex items-center justify-center"
                 >
                     <div className="top-creators-card relative w-full max-w-sm rounded-[32px] border border-white/10 bg-gradient-to-b from-background/80 via-surface/70 to-surface/40 p-6 shadow-2xl shadow-black/40 backdrop-blur-lg md:max-w-md lg:max-w-lg">

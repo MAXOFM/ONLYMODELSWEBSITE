@@ -107,7 +107,7 @@ export function WhyOnlyModelsSection() {
         <section
             id="why-us"
             data-section="why-us"
-            className="why-onlymodels-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
+            className="why-onlymodels-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[20px]"
         >
             <div className="space-y-16">
                 {/* Heading */}
@@ -117,6 +117,7 @@ export function WhyOnlyModelsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        suppressHydrationWarning
                         className="why-badge mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[0.75rem] tracking-[0.55em] text-foreground/70"
                     >
                         WHY US
@@ -131,6 +132,7 @@ export function WhyOnlyModelsSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
+                            suppressHydrationWarning
                             className="why-heading relative bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text pb-2 text-4xl font-bold text-transparent md:text-5xl max-[500px]:text-[25px]"
                         >
                             Why OnlyModels is the Agency Creators Trust
@@ -141,7 +143,8 @@ export function WhyOnlyModelsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="why-subtitle mx-auto max-w-3xl text-xl font-semibold text-foreground/85"
+                        suppressHydrationWarning
+                        className="why-subtitle mx-auto max-w-3xl text-xl font-semibold text-foreground/85 max-[500px]:text-[15px]"
                     >
                         OnlyModels isn’t just another agency. We’re the team creators choose when they want real money, real growth, and real results. We focus on high-value markets, modern systems, and long-term performance that compounds month after month. No shortcuts. No outdated tactics. Just elite execution.
                     </motion.p>
@@ -161,6 +164,7 @@ export function WhyOnlyModelsSection() {
                             }
                         }
                     }}
+                    suppressHydrationWarning
                     className="why-grid grid gap-8 md:grid-cols-2"
                 >
                     {trustPoints.map((point) => (

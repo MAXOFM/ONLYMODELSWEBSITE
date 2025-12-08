@@ -108,7 +108,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="testimonials-section relative isolate overflow-hidden py-24 sm:py-32 max-[500px]:py-[8px]"
+      className="testimonials-section relative isolate overflow-hidden py-24 sm:py-32 max-[500px]:py-[20px]"
       id="testimonials"
       data-section="testimonials"
       ref={containerRef}
@@ -219,11 +219,11 @@ export function TestimonialsSection() {
                       {videoTestimonials[activeIndex].role}
                     </p>
                   </div>
-                  <div className="rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+                  <div className="rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-accent max-[500px]:text-[10px]">
                     {videoTestimonials[activeIndex].stat}
                   </div>
                 </div>
-                <p className="text-base leading-relaxed text-muted-foreground">
+                <p className="text-base leading-relaxed text-muted-foreground max-[500px]:text-[15px]">
                   {videoTestimonials[activeIndex].quote}
                 </p>
               </div>
@@ -243,22 +243,22 @@ export function TestimonialsSection() {
                     type="button"
                     onClick={() => setActiveIndex(index)}
                     className={`video-testimonial-pill group relative flex items-center gap-4 rounded-2xl border px-4 py-4 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${isActive
-                        ? "border-accent/40 bg-accent/10 shadow-[0_20px_60px_rgba(236,72,153,0.25)] text-foreground"
-                        : "border-white/10 bg-white/5 text-foreground/80 hover:border-white/20 dark:bg-white/5"
+                        ? "border-accent/40 bg-accent/10 shadow-[0_20px_60px_rgba(236,72,153,0.25)] text-foreground max-[500px]:py-2 max-[500px]:px-2"
+                        : "border-white/10 bg-white/5 text-foreground/80 hover:border-white/20 dark:bg-white/5 max-[500px]:py-2 max-[500px]:px-2"
                       }`}
                     aria-pressed={isActive}
                     style={{ cursor: "pointer", transform: isActive ? "translateY(-2px)" : undefined }}
                   >
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl border transition ${isActive ? "border-accent/40 bg-accent/20 text-accent" : "border-white/10 bg-white/5 text-white/70 group-hover:text-accent group-hover:border-accent/30"}`}>
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl border transition ${isActive ? "border-accent/40 bg-accent/20 text-accent max-[500px]:h-8 max-[500px]:w-8" : "border-white/10 bg-white/5 text-white/70 group-hover:text-accent group-hover:border-accent/30 max-[500px]:h-8 max-[500px]:w-8"}`}>
                       <Play className="h-4 w-4" />
                     </div>
                     <div className="flex flex-1 flex-col">
-                      <p className="text-sm font-semibold">{item.creator}</p>
-                      <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">{item.role}</p>
+                      <p className="text-sm font-semibold max-[500px]:text-[12px]">{item.creator}</p>
+                      <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground max-[500px]:text-[10px]">{item.role}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-semibold text-accent">{item.stat}</p>
-                      <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground">{item.length}</p>
+                      <p className="text-sm font-semibold text-accent max-[500px]:text-[10px]">{item.stat}</p>
+                      <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground max-[500px]:text-[10px]">{item.length}</p>
                     </div>
                   </button>
                 );

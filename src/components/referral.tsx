@@ -27,6 +27,7 @@ function HologramCard({ title, description }: { title: string; description: stri
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
+      suppressHydrationWarning
       className="cta-holo-card group relative cursor-pointer overflow-hidden rounded-[32px] border border-white/15 bg-background/60 px-6 py-5 transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-background/80"
     >
       <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-70">
@@ -44,7 +45,7 @@ export function ReferralSection() {
 
   return (
     <section
-      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
+      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[20px]"
       id="cta"
       data-section="cta"
       ref={sectionRef}

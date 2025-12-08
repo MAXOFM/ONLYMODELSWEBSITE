@@ -91,7 +91,7 @@ export function StepsToStartSection() {
 
   return (
     <section
-      className="steps-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]"
+      className="steps-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[20px]"
       id="steps"
       data-section="steps"
       ref={sectionRef}

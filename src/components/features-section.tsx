@@ -188,7 +188,7 @@ function RevenueGraph() {
 export function FeaturesSection() {
   return (
     <section
-      className="features-section mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-5 py-0 max-[500px]:py-[8px]"
+      className="features-section mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-5 py-0 max-[500px]:py-[20px]"
       id="features"
       data-section="features"
       aria-label="Platform capabilities"
@@ -206,6 +206,7 @@ export function FeaturesSection() {
             }
           }
         }}
+        suppressHydrationWarning
         className="grid w-full gap-8 md:grid-cols-3"
       >
         {featureGroups.map((feature) => (

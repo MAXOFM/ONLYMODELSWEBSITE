@@ -218,7 +218,7 @@ function GrowthGraph() {
 
 export function ServicesDetail() {
     return (
-        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]">
+        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[20px]">
             <div className="mx-auto max-w-6xl space-y-32">
                 {services.map((service, index) => {
                     const headingDirection = index % 2 === 0 ? "right" : "left";
@@ -254,7 +254,7 @@ export function ServicesDetail() {
                                     </div> */}
                                     <motion.div className="relative inline-flex">
                                         <motion.h3
-                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl max-[500px]:text-[35px]"
+                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl max-[500px]:text-[25px]"
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, amount: 0.6 }}
