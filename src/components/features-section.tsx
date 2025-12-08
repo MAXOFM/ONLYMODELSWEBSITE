@@ -188,7 +188,7 @@ function RevenueGraph() {
 export function FeaturesSection() {
   return (
     <section
-      className="features-section mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-5 py-0"
+      className="features-section mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-5 py-0 max-[500px]:py-[8px]"
       id="features"
       data-section="features"
       aria-label="Platform capabilities"
@@ -259,12 +259,12 @@ export function FeaturesSection() {
               </div>
 
               <div className="relative z-10 space-y-2" style={{ transform: "translateZ(20px)" }}>
-                <h3 className="text-2xl font-semibold">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-muted text-left">{feature.description}</p>
+                <h3 className="text-2xl font-semibold max-[500px]:text-[20px]">{feature.title}</h3>
+                <p className="text-sm leading-relaxed text-muted text-left max-[500px]:text-[15px]">{feature.description}</p>
               </div>
 
               {/* Animated Graph Container */}
-              <div className="relative z-10 mt-auto pt-4" style={{ transform: "translateZ(40px)" }}>
+              <div className="relative z-10 mt-auto pt-4 max-[500px]:pt-0" style={{ transform: "translateZ(40px)" }}>
                 {feature.graphType === "network" && <NetworkGraph />}
                 {feature.graphType === "workflow" && <WorkflowGraph />}
                 {feature.graphType === "revenue" && <RevenueGraph />}

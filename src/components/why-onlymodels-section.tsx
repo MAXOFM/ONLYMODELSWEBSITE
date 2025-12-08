@@ -107,7 +107,7 @@ export function WhyOnlyModelsSection() {
         <section
             id="why-us"
             data-section="why-us"
-            className="why-onlymodels-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32"
+            className="why-onlymodels-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
         >
             <div className="space-y-16">
                 {/* Heading */}
@@ -131,7 +131,7 @@ export function WhyOnlyModelsSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="why-heading relative bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text pb-2 text-4xl font-bold text-transparent md:text-5xl max-[500px]:text-[35px]"
+                            className="why-heading relative bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text pb-2 text-4xl font-bold text-transparent md:text-5xl max-[500px]:text-[25px]"
                         >
                             Why OnlyModels is the Agency Creators Trust
                         </motion.h2>

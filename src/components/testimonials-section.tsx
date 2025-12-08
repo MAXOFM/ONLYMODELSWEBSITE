@@ -108,7 +108,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="testimonials-section relative isolate overflow-hidden py-24 sm:py-32"
+      className="testimonials-section relative isolate overflow-hidden py-24 sm:py-32 max-[500px]:py-[8px]"
       id="testimonials"
       data-section="testimonials"
       ref={containerRef}
@@ -120,7 +120,7 @@ export function TestimonialsSection() {
             initial="hidden"
             animate={controls}
             variants={headlineVariants}
-            className="testimonials-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70"
+            className="testimonials-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70 max-[500px]:text-[9px]"
           >
             <Star className="h-4 w-4 text-accent" />
             Verified Creator Receipts
@@ -129,7 +129,7 @@ export function TestimonialsSection() {
             initial="hidden"
             animate={controls}
             variants={headlineVariants}
-            className="testimonials-heading text-balance text-4xl font-semibold leading-tight text-accent sm:text-5xl lg:text-6xl"
+            className="testimonials-heading text-balance text-4xl font-semibold leading-tight text-accent sm:text-5xl lg:text-6xl max-[500px]:text-[25px]"
           >
             The trust that keeps elite creators scaling with us
           </motion.h2>
@@ -137,7 +137,7 @@ export function TestimonialsSection() {
             initial="hidden"
             animate={controls}
             variants={headlineVariants}
-            className="testimonials-subtext text-pretty text-base text-muted-foreground sm:text-lg"
+            className="testimonials-subtext text-pretty text-base text-muted-foreground sm:text-lg max-[500px]:text-[15px]"
           >
             Every message, every upsell, every retention play is handled like a white-glove service.
             Here is what a handful of our partners say after handing us the backend.

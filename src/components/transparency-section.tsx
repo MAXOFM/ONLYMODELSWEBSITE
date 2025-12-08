@@ -125,7 +125,7 @@ export function TransparencySection() {
     <section
       id="transparency"
       data-section="transparency"
-      className="transparency-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+      className="transparency-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(236,72,153,0.15),_transparent_55%)]" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-16">
@@ -144,7 +144,7 @@ export function TransparencySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="transparency-heading bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-4xl font-semibold leading-tight text-transparent tracking-tight drop-shadow-[0_5px_30px_rgba(236,72,153,0.35)] md:text-6xl"
+            className="transparency-heading bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-4xl font-semibold leading-tight text-transparent tracking-tight drop-shadow-[0_5px_30px_rgba(236,72,153,0.35)] md:text-6xl max-[500px]:text-[25px]"
             style={{ paddingBottom: "0.15em" }}
           >
             OnlyFans Agency – Full Transparency for Every Creator

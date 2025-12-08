@@ -107,7 +107,7 @@ export function RealStrugglesSection() {
 
   return (
     <section
-      className="real-struggles-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+      className="real-struggles-section relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]"
       id="real-struggles"
       data-section="real-struggles"
       ref={sectionRef}
@@ -134,15 +134,16 @@ export function RealStrugglesSection() {
               ? { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } }
               : {}
           }
+          suppressHydrationWarning
           className="mx-auto max-w-4xl text-center"
         >
           <p className="real-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/60">
             The truth
           </p>
-          <h2 className="real-heading mt-5 text-balance text-4xl font-semibold text-accent sm:text-5xl lg:text-6xl">
+          <h2 className="real-heading mt-5 text-balance text-4xl font-semibold text-accent sm:text-5xl lg:text-6xl max-[500px]:text-[25px]">
             The real struggles most OnlyFans creators deal with
           </h2>
-          <p className="real-subtext mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+          <p className="real-subtext mx-auto mt-4 max-w-3xl text-lg text-muted-foreground max-[500px]:text-[15px]">
             If you’ve been feeling stuck, overwhelmed, or unsure what’s wrong, you’re not crazy — these are the problems almost every creator faces but nobody talks about.
           </p>
         </motion.div>
@@ -187,7 +188,7 @@ export function RealStrugglesSection() {
                   className="relative space-y-5"
                 >
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold uppercase tracking-[0.4em] text-foreground/40">
+                    <p className="text-sm font-semibold uppercase tracking-[0.4em] text-foreground/40 max-[500px]:text-[15px]">
                       {String(struggle.id).padStart(2, "0")}
                     </p>
                     <motion.span
@@ -199,8 +200,8 @@ export function RealStrugglesSection() {
                   </div>
 
                   <div className="space-y-3">
-                    <h3 className="text-2xl font-semibold text-foreground">{struggle.title}</h3>
-                    <p className="text-base text-muted-foreground">{struggle.description}</p>
+                    <h3 className="text-2xl font-semibold text-foreground max-[500px]:text-[20px]">{struggle.title}</h3>
+                    <p className="text-base text-muted-foreground max-[500px]:text-[15px]">{struggle.description}</p>
                   </div>
                 </motion.div>
 
@@ -232,11 +233,12 @@ export function RealStrugglesSection() {
               ? { opacity: 1, scale: 1, filter: "blur(0px)", transition: { delay: 0.6, duration: 0.8, ease: "backOut" } }
               : {}
           }
+          suppressHydrationWarning
           className="text-center"
         >
           <div className="mx-auto h-px w-40 bg-gradient-to-r from-transparent via-accent to-transparent" />
-          <p className="mt-6 text-xl font-semibold text-accent sm:text-2xl">You are not the problem.</p>
-          <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">
+          <p className="mt-6 text-xl font-semibold text-accent sm:text-2xl max-[500px]:text-[20px]">You are not the problem.</p>
+          <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground max-[500px]:text-[15px]">
             These cracks are exactly what OnlyModels fixes with full-stack systems, so you can focus on
             creating while we engineer the growth.
           </p>

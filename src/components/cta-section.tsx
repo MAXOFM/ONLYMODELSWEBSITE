@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Gift, Headset, Mail, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { LightningButton } from "./ui/lightning-button";
+import StartJourneyButton from "./ui/start-journey-button";
 
 const referralPerks = [
   {
@@ -61,7 +62,7 @@ export function CallToActionSection() {
 
   return (
     <section
-      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32"
+      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
       id="cta"
       data-section="cta"
       ref={sectionRef}
@@ -90,17 +91,17 @@ export function CallToActionSection() {
             <p className="text-xs uppercase tracking-[0.45em] text-foreground/60">
               Ready to scale
             </p>
-            <h2 className="text-3xl font-semibold text-accent md:text-5xl">
+            <h2 className="text-3xl font-semibold text-accent md:text-5xl max-[500px]:text-[25px]">
               What are you waiting for?
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl max-[500px]:text-[15px]">
               Join the top 0.1% of creators. We handle infrastructure, chat, and growth while you
               focus on what you do best—creating.
             </p>
           </div>
           <div className="relative mt-10 flex flex-col items-center justify-center gap-4 md:flex-row">
             <LightningButton label="Apply Now" href="mailto:launch@onlymodels.app" />
-            <button className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/10 px-10 py-4 text-lg font-semibold text-foreground transition hover:border-accent/50 hover:text-accent">
+            <button className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/10 px-10 py-4 text-lg font-semibold text-foreground transition hover:border-accent/50 hover:text-accent max-[500px]:text-[12px]">
               <span>+1 438 778 4338</span>
             </button>
           </div>
@@ -157,8 +158,8 @@ export function CallToActionSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="space-y-6 text-center"
         >
-          <h3 className="text-2xl font-semibold text-foreground md:text-3xl">Need something else?</h3>
-          <p className="text-lg text-muted-foreground">
+          <h3 className="text-2xl font-semibold text-foreground md:text-3xl max-[500px]:text-[20px]">Need something else?</h3>
+          <p className="text-lg text-muted-foreground max-[500px]:text-[15px]">
             Ping us anytime. A senior success manager replies within 24 hours.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -167,12 +168,9 @@ export function CallToActionSection() {
               {/* support@onlymodels.app */}
               onlymodels.ca@gmail.com
             </button>
-            <button className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-muted-foreground transition hover:border-accent/50 hover:text-accent">
-              {/* <Headset className="h-5 w-5" /> */}
-              {/* Live concierge */}
-              Apply Now
-            </button>
-            
+            <div className="flex justify-center mt-10 w-full">
+              <StartJourneyButton />
+            </div>
           </div>
         </motion.div>
       </div>

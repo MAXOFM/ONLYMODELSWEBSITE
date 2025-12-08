@@ -40,7 +40,7 @@ export function TopCreatorsSection() {
         <section
             id="growth"
             data-section="growth"
-            className="top-creators-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32"
+            className="top-creators-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
         >
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
                 {/* Left Column: Text Content */}
@@ -72,7 +72,7 @@ export function TopCreatorsSection() {
                         </div>
 
                         {/* Main heading */}
-                        <h2 className="top-creators-heading relative bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text pb-2 text-5xl font-bold leading-tight text-transparent md:text-7xl max-[500px]:text-[35px]">
+                        <h2 className="top-creators-heading relative bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text pb-2 text-5xl font-bold leading-tight text-transparent md:text-7xl max-[500px]:text-[25px]">
                             We create the top 
                         </h2>
                     </motion.div>

@@ -15,7 +15,7 @@ const rotatingPhrases = [
 
 export function HeroSection() {
   return (
-    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40">
+    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40 max-[500px]:pt-[8px]">
       <div className="absolute inset-0 z-0">
         <InteractiveHeroBackground />
       </div>
@@ -46,6 +46,7 @@ export function HeroSection() {
           whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          suppressHydrationWarning
           className="flex flex-1 flex-col items-center gap-6 md:items-center xl:items-start"
         >
           <motion.div

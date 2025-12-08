@@ -260,7 +260,7 @@ function CompliancePanel() {
 
 export function ComprehensiveGrowth() {
     return (
-        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]">
             <div className="mx-auto max-w-6xl space-y-32">
                 {growthFeatures.map((feature, index) => {
                     const headingDirection = index % 2 === 0 ? "right" : "left";
@@ -271,6 +271,7 @@ export function ComprehensiveGrowth() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
+                            suppressHydrationWarning
                             className={`flex flex-col gap-1 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
                                 }`}
                         >
@@ -294,7 +295,7 @@ export function ComprehensiveGrowth() {
                                     </div> */}
                                     <motion.div className="relative inline-flex">
                                         <motion.h3
-                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl max-[500px]:text-[35px]"
+                                            className="text-3xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl max-[500px]:text-[25px]"
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, amount: 0.6 }}
@@ -312,7 +313,7 @@ export function ComprehensiveGrowth() {
                                                 ease: "easeInOut"
                                             }}
                                         >
-                                            <motion.span
+                                            {/* <motion.span
                                                 className="inline-flex flex-wrap gap-y-1"
                                                 initial="hidden"
                                                 whileInView="visible"
@@ -328,7 +329,8 @@ export function ComprehensiveGrowth() {
                                                         {word}
                                                     </motion.span>
                                                 ))}
-                                            </motion.span>
+                                            </motion.span> */}
+                                            {feature.title}
                                         </motion.h3>
                                     </motion.div>
                                     

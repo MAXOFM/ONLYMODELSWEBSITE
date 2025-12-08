@@ -129,7 +129,7 @@ export function WorkflowSection() {
   return (
     <section
       ref={sectionRef}
-      className="workflow-section mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 py-24 my-20"
+      className="workflow-section mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 py-24 my-20 max-[500px]:py-[8px]"
       id="workflow"
       data-section="workflow"
     >
@@ -142,10 +142,10 @@ export function WorkflowSection() {
           className="mb-20 space-y-4 text-center"
         >
           <p className="text-xs uppercase tracking-[0.45em] text-accent">How We Work</p>
-          <h2 className="text-4xl font-semibold text-foreground md:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-semibold text-foreground md:text-5xl lg:text-6xl max-[500px]:text-[25px]">
             We operate the entire machine<br />so you stay in creator mode
           </h2>
-          <p className="mx-auto max-w-3xl text-lg text-muted">
+          <p className="mx-auto max-w-3xl text-lg text-muted max-[500px]:text-[15px]">
             Strategy, chat, creative, compliance, and growth systems built exclusively for OnlyFans elites.
           </p>
         </motion.div>

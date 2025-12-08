@@ -44,7 +44,7 @@ export function ReferralSection() {
 
   return (
     <section
-      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32"
+      className="cta-section relative z-10 mx-auto w-full max-w-6xl px-5 py-32 max-[500px]:py-[8px]"
       id="cta"
       data-section="cta"
       ref={sectionRef}

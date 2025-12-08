@@ -92,7 +92,7 @@ export function FAQSection() {
 
   return (
     <section
-      className="faq-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+      className="faq-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]"
       id="faq"
       data-section="faq"
       ref={sectionRef}

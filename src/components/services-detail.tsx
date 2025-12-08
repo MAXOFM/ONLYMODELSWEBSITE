@@ -218,7 +218,7 @@ function GrowthGraph() {
 
 export function ServicesDetail() {
     return (
-        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[8px]">
             <div className="mx-auto max-w-6xl space-y-32">
                 {services.map((service, index) => {
                     const headingDirection = index % 2 === 0 ? "right" : "left";
@@ -229,6 +229,7 @@ export function ServicesDetail() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
+                            suppressHydrationWarning
                             className={`flex flex-col gap-1 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
                                 }`}
                         >
@@ -270,8 +271,9 @@ export function ServicesDetail() {
                                                 repeat: Infinity,
                                                 ease: "easeInOut"
                                             }}
+                                            suppressHydrationWarning
                                         >
-                                            <motion.span
+                                            {/* <motion.span
                                                 className="inline-flex flex-wrap gap-y-1 "
                                                 initial="hidden"
                                                 whileInView="visible"
@@ -287,7 +289,8 @@ export function ServicesDetail() {
                                                         {word}
                                                     </motion.span>
                                                 ))}
-                                            </motion.span>
+                                            </motion.span> */}
+                                            {service.title}
                                         </motion.h3>
                                     </motion.div>
                                 </div>
