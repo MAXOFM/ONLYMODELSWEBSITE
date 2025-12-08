@@ -118,7 +118,7 @@ export function WhyOnlyModelsSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         suppressHydrationWarning
-                        className="why-badge mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[0.75rem] tracking-[0.55em] text-foreground/70"
+                        className="why-badge mx-auto flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[0.75rem] tracking-[0.55em] text-foreground/70 max-[500px]:text-[9px]"
                     >
                         WHY US
                         <span className="h-px w-12 bg-gradient-to-r from-transparent via-accent to-transparent" />

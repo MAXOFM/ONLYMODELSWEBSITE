@@ -122,7 +122,7 @@ const FooterWaves = () => {
 
 export function Footer() {
   return (
-    <footer className="relative mt-48">
+    <footer className="relative mt-48 max-[500px]:mt-20">
       {/* Theme-aware styles for waves and background */}
       <style jsx global>{`
         [data-theme="light"] footer {
@@ -149,7 +149,7 @@ export function Footer() {
       >
         <FooterWaves />
 
-        <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 px-6">
+        <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 px-6 max-[500px]:gap-[5px]">
           {/* Logo */}
           <div className="w-48 transform transition-transform hover:scale-105 duration-300">
             <Link href="/#home">

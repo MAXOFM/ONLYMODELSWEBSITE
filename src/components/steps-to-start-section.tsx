@@ -107,10 +107,10 @@ export function StepsToStartSection() {
           <p className="steps-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-foreground/70">
             Start
           </p>
-          <h2 className="steps-heading mt-5 text-balance text-4xl font-semibold text-accent sm:text-5xl lg:text-6xl">
+          <h2 className="steps-heading mt-5 text-balance text-4xl font-semibold text-accent sm:text-5xl lg:text-6xl max-[500px]:text-[25px]">
             Steps to activate your revenue engine
           </h2>
-          <p className="steps-subtext mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+          <p className="steps-subtext mx-auto mt-4 max-w-3xl text-lg text-muted-foreground max-[500px]:text-[15px]">
             Five touchpoints stand between you and a fully managed backend. Each step unlocks the next,
             with zero guesswork and daily visibility.
           </p>
@@ -180,10 +180,10 @@ export function StepsToStartSection() {
                       <p className="text-xs font-semibold uppercase tracking-[0.4em] text-foreground/40">
                         Step {String(step.id).padStart(2, "0")}
                       </p>
-                      <h3 className="text-2xl font-semibold text-foreground">{step.title}</h3>
+                      <h3 className="text-2xl font-semibold text-foreground max-[500px]:text-[20px]">{step.title}</h3>
                     </div>
                   </div>
-                  <p className="mt-5 text-base text-muted-foreground">{step.description}</p>
+                  <p className="mt-5 text-base text-muted-foreground max-[500px]:text-[15px]">{step.description}</p>
                   <div className="mt-6 flex items-center justify-between text-sm font-medium text-foreground/70">
                     <span>{step.meta}</span>
                     <span

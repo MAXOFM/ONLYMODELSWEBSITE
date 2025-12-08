@@ -272,7 +272,7 @@ export function ComprehensiveGrowth() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
                             suppressHydrationWarning
-                            className={`flex flex-col gap-1 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                            className={`flex flex-col gap-1 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse max-[500px]:mb-[20px]" : "lg:flex-row max-[500px]:mb-[20px]"
                                 }`}
                         >
                             {/* Visual Side */}
@@ -335,7 +335,7 @@ export function ComprehensiveGrowth() {
                                     </motion.div>
                                     
                                 </div>
-                                <div className=" space-y-3 text-lg leading-relaxed text-muted-foreground text-left max-[1200px]:p-[10%]  max-[500px]:p-[2%] max-[500px]:text-[15px]">
+                                <div className=" space-y-3 text-lg leading-relaxed text-muted-foreground text-left max-[1200px]:p-[10%]  max-[500px]:p-[1%] max-[500px]:text-[15px] max-[500px]:leading-[1.2] max-[500px]:space-y-[10px] ">
                                     {feature.content.map((paragraph, i) => (
                                         <p key={i}>{paragraph}</p>
                                     ))}

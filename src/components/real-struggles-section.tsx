@@ -137,7 +137,7 @@ export function RealStrugglesSection() {
           suppressHydrationWarning
           className="mx-auto max-w-4xl text-center"
         >
-          <p className="real-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/60">
+          <p className="real-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/60 max-[500px]:text-[9px]">
             The truth
           </p>
           <h2 className="real-heading mt-5 text-balance text-4xl font-semibold text-accent sm:text-5xl lg:text-6xl max-[500px]:text-[25px]">

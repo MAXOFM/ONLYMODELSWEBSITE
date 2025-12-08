@@ -92,7 +92,7 @@ export function FAQSection() {
 
   return (
     <section
-      className="faq-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[20px]"
+      className="faq-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
       id="faq"
       data-section="faq"
       ref={sectionRef}
@@ -109,10 +109,10 @@ export function FAQSection() {
             <Sparkles className="h-4 w-4 text-accent" />
             FAQ
           </div>
-          <h2 className="faq-heading mt-6 text-balance text-4xl font-semibold leading-tight text-accent sm:text-5xl lg:text-6xl">
+          <h2 className="faq-heading mt-6 text-balance text-4xl font-semibold leading-tight text-accent sm:text-5xl lg:text-6xl max-[500px]:text-[25px]">
             Frequently Asked Questions
           </h2>
-          <p className="faq-subtext mt-4 text-lg text-muted-foreground">
+          <p className="faq-subtext mt-4 text-lg text-muted-foreground max-[500px]:text-[15px]">
             Everything from contracts to day-one execution spelled out so you can scale with
             certainty.
           </p>
@@ -122,7 +122,7 @@ export function FAQSection() {
                 key={stat.label}
                 className="faq-stat flex w-full items-center justify-between gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-foreground/70 backdrop-blur transition hover:border-white/30 hover:text-foreground md:w-auto md:justify-start md:py-2"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 ">
                   <ShieldCheck className="h-4 w-4 text-accent" />
                   <p className="text-xs uppercase tracking-[0.3em]">{stat.label}</p>
                 </div>

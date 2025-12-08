@@ -15,7 +15,7 @@ const rotatingPhrases = [
 
 function HeroSection() {
   return (
-    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40 max-[500px]:py-[20px]">
+    <section id="home" data-section="hero" className="relative flex min-h-[65dvh] w-full flex-col items-center justify-center overflow-hidden pt-24 md:min-h-dvh md:pt-40 max-[500px]:pb-[20px]">
       <div className="absolute inset-0 z-0">
         <InteractiveHeroBackground />
       </div>

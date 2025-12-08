@@ -69,15 +69,15 @@ export function ReferralSection() {
                 <Gift className="h-4 w-4 text-accent" />
                 Referral ignite
               </div>
-              <h3 className="text-2xl font-semibold text-foreground md:text-3xl">
+              <h3 className="text-2xl font-semibold text-foreground md:text-3xl max-[500px]:text-[25px]">
                 Earn 10% for each creator you invite.
               </h3>
-              <p className="text-base text-muted-foreground">
+              <p className="text-base text-muted-foreground max-[500px]:text-[15px]">
                 Share your experience and get rewarded. High-performing referrals unlock larger rev
                 shares, custom launch pods, and white-glove support.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button className="cta-referral-primary inline-flex cursor-pointer items-center gap-2 rounded-full border border-accent px-6 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-background">
+                <button className="cta-referral-primary inline-flex cursor-pointer items-center gap-2 rounded-full border border-accent px-6 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-background max-[500px]:px-4 max-[500px]:py-1">
                   Learn more
                 </button>
                 <button className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:text-accent">

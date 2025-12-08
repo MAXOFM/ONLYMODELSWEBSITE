@@ -42,7 +42,7 @@ export function FeaturedSection() {
         className="text-center space-y-4"
       >
         <p className="text-xs uppercase tracking-[0.5em] text-foreground/40">As seen in</p>
-        <div className="featured-media-pill inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold tracking-[0.3em] text-foreground/70">
+        <div className="featured-media-pill inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold tracking-[0.3em] text-foreground/70 max-[500px]:text-[9px]">
           40+ media features
         </div>
       </motion.div>

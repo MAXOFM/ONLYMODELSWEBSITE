@@ -136,7 +136,7 @@ export function TransparencySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             suppressHydrationWarning
-            className="transparency-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.45em] text-foreground/70"
+            className="transparency-pill inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.45em] text-foreground/70 max-[500px]:text-[9px]"
           >
             Transparent by design
           </motion.p>
