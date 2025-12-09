@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 
 export function FormSection() {
   const [formData, setFormData] = useState({
@@ -17,24 +17,64 @@ export function FormSection() {
     message: "",
   });
 
+  const [emailError, setEmailError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [showNotification, setShowNotification] = useState(false);
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Validate email in real-time
+    if (name === "email") {
+      if (value && !validateEmail(value)) {
+        setEmailError("Please enter a valid email address");
+      } else {
+        setEmailError("");
+      }
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.name === "email" && e.target.value) {
+      if (!validateEmail(e.target.value)) {
+        setEmailError("Please enter a valid email address");
+      } else {
+        setEmailError("");
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name || !formData.country || !formData.email) {
+      return;
+    }
+
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setEmailError("");
 
     // Simulate form submission
     try {
       // TODO: Replace with actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       setSubmitStatus("success");
+      setShowNotification(true);
       setFormData({
         name: "",
         country: "",
@@ -46,8 +86,17 @@ export function FormSection() {
         otherSocials: "",
         message: "",
       });
+      
+      // Hide notification after 5 seconds
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
     } catch (error) {
       setSubmitStatus("error");
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -63,10 +112,10 @@ export function FormSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 max-[500px]:text-[25px]">
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4">
             Models Apply Here
           </h1>
-          <p className="text-base text-muted-foreground sm:text-lg md:text-xl px-2 max-[500px]:text-[15px]">
+          <p className="text-base text-muted-foreground sm:text-lg md:text-xl px-2">
             Apply using the form below and one of our team members will reach out to you within 24 hours.
           </p>
         </motion.div>
@@ -164,9 +213,23 @@ export function FormSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border border-white/10 bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]"
+                    onBlur={handleBlur}
+                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border ${
+                      emailError ? "border-red-400/50" : "border-white/10"
+                    } bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]`}
                     placeholder="your.email@example.com"
                   />
+                  {emailError && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-1.5 text-xs text-red-400 flex items-center gap-1"
+                    >
+                      <XCircle className="w-3 h-3" />
+                      {emailError}
+                    </motion.p>
+                  )}
                 </div>
 
                 <div>
@@ -236,47 +299,109 @@ export function FormSection() {
             <div className="pt-2 sm:pt-3 md:pt-4">
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting || !formData.name || !formData.country || !formData.email}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-3.5 md:py-4 rounded-full bg-accent text-white font-semibold text-base sm:text-lg shadow-[0_0_30px_rgba(255,20,147,0.4)] hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 min-h-[48px] sm:min-h-[52px]"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span className="text-sm sm:text-base">Submitting...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-sm sm:text-base">Submit</span>
-                  </>
-                )}
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Submit</span>
               </motion.button>
 
-              {/* Status Messages */}
-              {submitStatus === "success" && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-3 sm:mt-4 text-accent font-medium text-center text-sm sm:text-base px-2"
-                >
-                  Thank you! We'll reach out to you within 24 hours.
-                </motion.p>
-              )}
-              {submitStatus === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-3 sm:mt-4 text-red-400 font-medium text-center text-sm sm:text-base px-2"
-                >
-                  Something went wrong. Please try again.
-                </motion.p>
-              )}
+              {/* Cute Loading Status under button */}
+              <AnimatePresence>
+                {isSubmitting && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mt-4 flex flex-col items-center justify-center gap-3"
+                  >
+                    <div className="flex items-center gap-2 text-accent">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span className="text-sm font-medium">Submitting your application...</span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      {[0, 1, 2].map((i) => (
+                        <motion.div
+                          key={i}
+                          className="w-2 h-2 rounded-full bg-accent"
+                          animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.5, 1, 0.5],
+                          }}
+                          transition={{
+                            duration: 0.8,
+                            repeat: Infinity,
+                            delay: i * 0.2,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </form>
         </motion.div>
       </div>
+
+      {/* Notification Toast */}
+      <AnimatePresence>
+        {showNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-sm w-full mx-4"
+          >
+            <div
+              className={`rounded-[20px] border ${
+                submitStatus === "success"
+                  ? "border-accent/30 bg-gradient-to-br from-background/95 to-background/90 shadow-[0_10px_40px_rgba(255,20,147,0.3)]"
+                  : "border-red-400/30 bg-gradient-to-br from-background/95 to-background/90 shadow-[0_10px_40px_rgba(239,68,68,0.3)]"
+              } backdrop-blur-xl p-4 flex items-start gap-3`}
+            >
+              {submitStatus === "success" ? (
+                <>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-foreground mb-1">
+                      Application Submitted!
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Thank you! We'll reach out to you within 24 hours.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-400/20 flex items-center justify-center">
+                    <XCircle className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-foreground mb-1">
+                      Submission Failed
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Something went wrong. Please try again.
+                    </p>
+                  </div>
+                </>
+              )}
+              <button
+                onClick={() => setShowNotification(false)}
+                className="flex-shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <XCircle className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
