@@ -103,7 +103,7 @@ export function FormSection() {
   };
 
   return (
-    <section className="relative isolate px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-32">
+    <section id="apply" data-section="apply" className="relative isolate px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-background to-background opacity-90" />
       <div className="relative mx-auto max-w-4xl">
         <motion.div

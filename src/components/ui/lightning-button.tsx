@@ -1,15 +1,36 @@
 "use client";
 
+import React from 'react';
+
 type LightningButtonProps = {
   label: string;
   href?: string;
 };
 
 export function LightningButton({ label, href }: LightningButtonProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    e.preventDefault();
+    const selector = '[data-section="apply"]';
+    const element = document.querySelector(selector) ?? document.getElementById('apply');
+    if (element) {
+      const headerOffset = 120;
+      const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    // If href is provided (like mailto), handle it after scrolling
+    if (href && href.startsWith('mailto:')) {
+      // Open mailto link after a short delay to allow scroll to start
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    }
+  };
+
   const button = (
     <div className="lightning-button group relative inline-flex">
       <button
         type="button"
+        onClick={handleClick}
         className="relative z-10 cursor-pointer rounded-full border-4 border-transparent bg-gradient-to-r from-accent via-accent-secondary to-accent-strong px-10 py-4 text-lg font-semibold text-background transition-colors duration-300"
       >
         {label}
@@ -111,7 +132,7 @@ export function LightningButton({ label, href }: LightningButtonProps) {
 
   if (href) {
     return (
-      <a href={href} className="inline-flex">
+      <a href={href} onClick={handleClick} className="inline-flex">
         {button}
       </a>
     );

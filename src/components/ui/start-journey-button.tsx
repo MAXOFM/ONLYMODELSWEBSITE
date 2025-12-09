@@ -4,9 +4,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StartJourneyButton = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const selector = '[data-section="apply"]';
+    const element = document.querySelector(selector) ?? document.getElementById('apply');
+    if (element) {
+      const headerOffset = 120;
+      const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   return (
     <StyledWrapper>
-      <button className="button">
+      <button className="button" onClick={handleClick}>
         {/* <span>Start your Journey</span> */}
         <span>Apply Now</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 43">
