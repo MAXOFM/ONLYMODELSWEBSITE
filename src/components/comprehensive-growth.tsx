@@ -312,6 +312,7 @@ export function ComprehensiveGrowth() {
                                                 repeat: Infinity,
                                                 ease: "easeInOut"
                                             }}
+                                            suppressHydrationWarning
                                         >
                                             {/* <motion.span
                                                 className="inline-flex flex-wrap gap-y-1"
