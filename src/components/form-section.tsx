@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Send, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export function FormSection() {
   const [formData, setFormData] = useState({
@@ -101,10 +102,65 @@ export function FormSection() {
     setEmailError("");
     setPhoneError("");
 
-    // Simulate form submission
     try {
-      // TODO: Replace with actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Prepare social media links
+      const socialLinks = [];
+      if (formData.instagram) {
+        socialLinks.push(`Instagram: ${formData.instagram}`);
+      }
+      if (formData.tiktok) {
+        socialLinks.push(`TikTok: ${formData.tiktok}`);
+      }
+      if (formData.twitter) {
+        socialLinks.push(`Twitter: ${formData.twitter}`);
+      }
+      if (formData.onlyfans) {
+        socialLinks.push(`OnlyFans: ${formData.onlyfans}`);
+      }
+
+      // Format email content
+      const emailContent = `
+Submission summary:
+
+Name: ${formData.name}
+Country/Region: ${formData.country}
+Email: ${formData.email}
+WhatsApp Phone Number: ${formData.phoneNumber}
+${socialLinks.length > 0 ? `Links To Your Social Profiles:\n${socialLinks.join('\n')}` : ''}
+${formData.message ? `Message: ${formData.message}` : ''}
+      `.trim();
+
+      // Send email using EmailJS
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your environment variables.');
+      }
+
+      // Initialize EmailJS
+      emailjs.init(publicKey);
+
+      // Send email with individual variables for better template formatting
+      await emailjs.send(serviceId, templateId, {
+        to_email: process.env.NEXT_PUBLIC_RECIPIENT_EMAIL || 'onlymodels.ca@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email,
+        subject: `New Application Form Submission from ${formData.name}`,
+        name: formData.name,
+        country: formData.country,
+        email: formData.email,
+        phone: formData.phoneNumber,
+        instagram: formData.instagram || '',
+        tiktok: formData.tiktok || '',
+        twitter: formData.twitter || '',
+        onlyfans: formData.onlyfans || '',
+        social_links: socialLinks.length > 0 ? socialLinks.join('\n') : 'No social links provided',
+        message_text: formData.message || 'No message provided',
+      });
+
       setSubmitStatus("success");
       setShowNotification(true);
       setFormData({
@@ -124,6 +180,7 @@ export function FormSection() {
         setShowNotification(false);
       }, 5000);
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus("error");
       setShowNotification(true);
       setTimeout(() => {
