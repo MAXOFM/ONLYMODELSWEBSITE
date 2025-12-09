@@ -13,11 +13,12 @@ export function FormSection() {
     instagram: "",
     tiktok: "",
     onlyfans: "",
-    otherSocials: "",
+    phoneNumber: "",
     message: "",
   });
 
   const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [showNotification, setShowNotification] = useState(false);
@@ -25,6 +26,14 @@ export function FormSection() {
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    // Remove spaces, dashes, parentheses, dots, and plus signs for validation
+    const cleanedPhone = phone.replace(/[\s\-\(\)\.\+]/g, '');
+    // Check if it contains only digits and has at least 10 digits (international format)
+    const phoneRegex = /^\d{10,15}$/;
+    return phoneRegex.test(cleanedPhone);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -39,6 +48,15 @@ export function FormSection() {
         setEmailError("");
       }
     }
+
+    // Validate phone number in real-time
+    if (name === "phoneNumber") {
+      if (value && !validatePhone(value)) {
+        setPhoneError("Please enter a valid phone number (10-15 digits)");
+      } else {
+        setPhoneError("");
+      }
+    }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -49,13 +67,20 @@ export function FormSection() {
         setEmailError("");
       }
     }
+    if (e.target.name === "phoneNumber" && e.target.value) {
+      if (!validatePhone(e.target.value)) {
+        setPhoneError("Please enter a valid phone number (10-15 digits)");
+      } else {
+        setPhoneError("");
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate required fields
-    if (!formData.name || !formData.country || !formData.email) {
+    if (!formData.name || !formData.country || !formData.email || !formData.phoneNumber) {
       return;
     }
 
@@ -65,9 +90,16 @@ export function FormSection() {
       return;
     }
 
+    // Validate phone number format
+    if (!validatePhone(formData.phoneNumber)) {
+      setPhoneError("Please enter a valid phone number (10-15 digits)");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setEmailError("");
+    setPhoneError("");
 
     // Simulate form submission
     try {
@@ -83,7 +115,7 @@ export function FormSection() {
         instagram: "",
         tiktok: "",
         onlyfans: "",
-        otherSocials: "",
+        phoneNumber: "",
         message: "",
       });
       
@@ -169,7 +201,7 @@ export function FormSection() {
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label htmlFor="twitter" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
                     Twitter Username
                   </label>
@@ -182,20 +214,20 @@ export function FormSection() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border border-white/10 bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]"
                     placeholder="@username"
                   />
-                </div>
+                </div> */}
 
                 <div>
-                  <label htmlFor="otherSocials" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
-                    Other Socials
+                  <label htmlFor="tiktok" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+                    TikTok Username
                   </label>
                   <input
                     type="text"
-                    id="otherSocials"
-                    name="otherSocials"
-                    value={formData.otherSocials}
+                    id="tiktok"
+                    name="tiktok"
+                    value={formData.tiktok}
                     onChange={handleChange}
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border border-white/10 bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]"
-                    placeholder="Other social media links"
+                    placeholder="@username"
                   />
                 </div>
               </div>
@@ -233,6 +265,36 @@ export function FormSection() {
                 </div>
 
                 <div>
+                  <label htmlFor="phoneNumber" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+                    Phone Number <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    required
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    pattern="[\d\s\-\(\)\.\+]{10,}"
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border ${
+                      phoneError ? "border-red-400/50" : "border-white/10"
+                    } bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]`}
+                    placeholder="+1 (123) 456-7890"
+                  />
+                  {phoneError && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-1.5 text-xs text-red-400 flex items-center gap-1"
+                    >
+                      <XCircle className="w-3 h-3" />
+                      {phoneError}
+                    </motion.p>
+                  )}
+                </div>
+
+                <div>
                   <label htmlFor="instagram" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
                     Instagram Username
                   </label>
@@ -247,22 +309,9 @@ export function FormSection() {
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="tiktok" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
-                    TikTok Username
-                  </label>
-                  <input
-                    type="text"
-                    id="tiktok"
-                    name="tiktok"
-                    value={formData.tiktok}
-                    onChange={handleChange}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border border-white/10 bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]"
-                    placeholder="@username"
-                  />
-                </div>
 
-                <div>
+
+                {/* <div>
                   <label htmlFor="onlyfans" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
                     OnlyFans Link
                   </label>
@@ -275,7 +324,7 @@ export function FormSection() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-[12px] sm:rounded-[14px] md:rounded-[16px] border border-white/10 bg-background/60 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all min-h-[44px]"
                     placeholder="https://onlyfans.com/..."
                   />
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -299,7 +348,7 @@ export function FormSection() {
             <div className="pt-2 sm:pt-3 md:pt-4">
               <motion.button
                 type="submit"
-                disabled={isSubmitting || !formData.name || !formData.country || !formData.email}
+                disabled={isSubmitting || !formData.name || !formData.country || !formData.email || !formData.phoneNumber}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-3.5 md:py-4 rounded-full bg-accent text-white font-semibold text-base sm:text-lg shadow-[0_0_30px_rgba(255,20,147,0.4)] hover:shadow-[0_0_40px_rgba(255,20,147,0.6)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 min-h-[48px] sm:min-h-[52px]"
