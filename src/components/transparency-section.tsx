@@ -127,7 +127,7 @@ export function TransparencySection() {
       data-section="transparency"
       className="transparency-section relative isolate px-4 py-24 sm:px-6 lg:px-8 lg:py-32 max-[500px]:py-[20px]"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(236,72,153,0.15),_transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(236,72,153,0.05),_transparent_55%)]" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-16">
         <div className="text-center space-y-4">
           <motion.p
