@@ -192,12 +192,12 @@ export function RealStrugglesSection() {
                     <p className="text-sm font-semibold uppercase tracking-[0.4em] text-foreground/40 max-[500px]:text-[15px]">
                       {String(struggle.id).padStart(2, "0")}
                     </p>
-                    <motion.span
+                    {/* <motion.span
                       animate={{ opacity: isActive ? 1 : 0.3, backgroundColor: isActive ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.02)" }}
                       className="rounded-full border border-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-foreground/60"
                     >
                       Real talk
-                    </motion.span>
+                    </motion.span> */}
                   </div>
 
                   <div className="space-y-3">
