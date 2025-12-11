@@ -48,7 +48,7 @@ const footerLinks = [
 
 const contactInfo = [
   { icon: Mail, text: "onlymodels.ca@gmail.com", href: "mailto:onlymodels.ca@gmail.com" },
-  { icon: MapPin, text: "6926 Jarry EAST, Montreal, H1P 3C1", href: "https://www.google.com/maps/search/6926+Jarry+EAST,+Montreal,+H1P+3C1" },
+  { icon: MapPin, text: "2955 Blvd. Saint-Martin O, Laval, QC H7T 2Y8", href: "https://www.google.com/maps/search/6926+Jarry+EAST,+Montreal,+H1P+3C1" },
 ];
 
 const socials = [
