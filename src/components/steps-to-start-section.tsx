@@ -96,7 +96,7 @@ export function StepsToStartSection() {
       data-section="steps"
       ref={sectionRef}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,20,147,0.12),_transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,20,147,0.12),_transparent_0%)]" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-16">
         <motion.div
           initial={{ opacity: 0, y: 32 }}

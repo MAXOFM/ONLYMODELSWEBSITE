@@ -1,6 +1,7 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 type LightningButtonProps = {
   label: string;
@@ -8,15 +9,118 @@ type LightningButtonProps = {
 };
 
 export function LightningButton({ label, href }: LightningButtonProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Handle hash scroll after navigation to home page
+  useEffect(() => {
+    if (pathname === '/') {
+      // Check if we have a hash in the URL
+      const hash = window.location.hash;
+      if (hash === '#apply') {
+        const scrollToForm = () => {
+          const selector = '[data-section="apply"]';
+          const element = document.querySelector(selector) ?? document.getElementById('apply');
+          if (element) {
+            const headerOffset = 120;
+            const elementTop = element.getBoundingClientRect().top;
+            const elementPosition = elementTop + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+            window.scrollTo({ 
+              top: Math.max(0, offsetPosition), 
+              behavior: 'smooth' 
+            });
+          }
+        };
+        // Wait for page to be fully rendered
+        setTimeout(scrollToForm, 300);
+      }
+    }
+  }, [pathname]);
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
-    const selector = '[data-section="apply"]';
-    const element = document.querySelector(selector) ?? document.getElementById('apply');
-    if (element) {
-      const headerOffset = 120;
-      const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-      window.scrollTo({ top, behavior: 'smooth' });
+    
+    const scrollToForm = () => {
+      const selector = '[data-section="apply"]';
+      const element = document.querySelector(selector) ?? document.getElementById('apply');
+      
+      if (element) {
+        const headerOffset = 120;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementPosition = elementTop + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset;
+        
+        window.scrollTo({ 
+          top: Math.max(0, offsetPosition), 
+          behavior: 'smooth' 
+        });
+      } else {
+        // Retry after a short delay if element not found (for dynamic content)
+        setTimeout(() => {
+          const retryElement = document.querySelector(selector) ?? document.getElementById('apply');
+          if (retryElement) {
+            const headerOffset = 120;
+            const elementTop = retryElement.getBoundingClientRect().top;
+            const elementPosition = elementTop + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+            window.scrollTo({ 
+              top: Math.max(0, offsetPosition), 
+              behavior: 'smooth' 
+            });
+          } else {
+            // If still not found, navigate to home page with hash
+            if (pathname !== '/') {
+              router.push('/#apply');
+              setTimeout(() => {
+                const formElement = document.querySelector(selector) ?? document.getElementById('apply');
+                if (formElement) {
+                  const headerOffset = 120;
+                  const elementTop = formElement.getBoundingClientRect().top;
+                  const elementPosition = elementTop + window.scrollY;
+                  const offsetPosition = elementPosition - headerOffset;
+                  window.scrollTo({ 
+                    top: Math.max(0, offsetPosition), 
+                    behavior: 'smooth' 
+                  });
+                }
+              }, 100);
+            }
+          }
+        }, 100);
+      }
+    };
+    
+    // If we're not on the home page, navigate first
+    if (pathname !== '/') {
+      // Navigate to home and set hash
+      router.push('/');
+      // Set hash after a brief delay to ensure navigation started
+      setTimeout(() => {
+        window.location.hash = '#apply';
+        // Scroll after hash is set
+        setTimeout(() => {
+          const formSelector = '[data-section="apply"]';
+          const formElement = document.querySelector(formSelector) ?? document.getElementById('apply');
+          if (formElement) {
+            const headerOffset = 120;
+            const elementTop = formElement.getBoundingClientRect().top;
+            const elementPosition = elementTop + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+            window.scrollTo({ 
+              top: Math.max(0, offsetPosition), 
+              behavior: 'smooth' 
+            });
+          }
+        }, 200);
+      }, 100);
+    } else {
+      // Small delay to ensure any ongoing animations/transitions don't interfere
+      requestAnimationFrame(() => {
+        scrollToForm();
+      });
     }
+    
     // If href is provided (like mailto), handle it after scrolling
     if (href && href.startsWith('mailto:')) {
       // Open mailto link after a short delay to allow scroll to start
