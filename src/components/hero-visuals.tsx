@@ -154,7 +154,7 @@ export function HeroVisuals() {
             >
                 <div className="relative h-[220px] w-[220px]">
                     <Image
-                        src="/assets/hero-visual-images/xcard.webp"
+                        src="/assets/hero-visual-images/xcard.png"
                         alt="Twitter analytics card"
                         fill
                         sizes="220px"
