@@ -194,7 +194,23 @@ export function TestimonialsSection() {
               </div>
               <div className="relative mx-auto w-full max-w-[330px] overflow-hidden rounded-[34px] border border-white/15 bg-black/70 shadow-[0_20px_60px_rgba(14,14,20,0.35)] sm:max-w-[360px]">
                 <div className="absolute -inset-2 rounded-[40px] bg-gradient-to-tr from-accent/30 via-transparent to-accent-secondary/30 opacity-60 blur-2xl" />
-                <div ref={videoContainerRef} className="relative rounded-[34px] border border-white/15 bg-black/80 overflow-hidden">
+                <div 
+                  ref={videoContainerRef} 
+                  className="relative rounded-[34px] border border-white/15 bg-black/80 overflow-hidden"
+                  onWheel={(e) => {
+                    // Prevent iframe from capturing scroll when scrolling over video area
+                    // Only prevent if scrolling (not clicking)
+                    if (Math.abs(e.deltaY) > 0) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      // Pass scroll to window for smooth page scrolling
+                      window.scrollBy({
+                        top: e.deltaY,
+                        behavior: 'auto'
+                      });
+                    }
+                  }}
+                >
                   <div
                     className="relative w-full"
                     style={{ 
@@ -213,62 +229,10 @@ export function TestimonialsSection() {
                         className="absolute left-0 top-0 h-full w-full rounded-[34px] border-0"
                         title={`${videoTestimonials[activeIndex].creator} testimonial`}
                         style={{ 
-                          pointerEvents: 'none',
-                          touchAction: 'none',
-                          overflow: 'hidden',
-                          overscrollBehavior: 'none'
+                          pointerEvents: 'auto'
                         }}
-                        scrolling="no"
                       />
                     )}
-                    {/* Transparent overlay - completely blocks iframe interaction and handles all events */}
-                    <div 
-                      className="absolute inset-0 z-30"
-                      onWheel={(e) => {
-                        // Prevent iframe from receiving scroll, let page handle it
-                        e.preventDefault();
-                        e.stopPropagation();
-                        // Dispatch scroll event to window for Lenis to handle
-                        const scrollEvent = new WheelEvent('wheel', {
-                          deltaY: e.deltaY,
-                          deltaX: e.deltaX,
-                          bubbles: true,
-                          cancelable: true
-                        });
-                        window.dispatchEvent(scrollEvent);
-                      }}
-                      onTouchStart={(e) => {
-                        e.stopPropagation();
-                      }}
-                      onTouchMove={(e) => {
-                        e.stopPropagation();
-                      }}
-                      onTouchEnd={(e) => {
-                        e.stopPropagation();
-                      }}
-                      onMouseDown={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                      }}
-                      onMouseMove={(e) => {
-                        e.stopPropagation();
-                      }}
-                      onMouseUp={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                      }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                      }}
-                      style={{ 
-                        pointerEvents: 'auto',
-                        cursor: 'default',
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                    {/* Overlay to hide video controls on mobile */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[140px] bg-gradient-to-t from-black via-black/95 to-transparent pointer-events-none z-10 max-[500px]:block md:hidden rounded-b-[34px]" />
                   </div>
                 </div>
               </div>
