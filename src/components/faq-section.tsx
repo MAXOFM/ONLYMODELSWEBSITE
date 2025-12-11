@@ -14,7 +14,7 @@ const faqs = [
   {
     question: " Do I need to sign a contract?",
     answer:
-      "Yes, but a real, professional contract. Everything is clear, legal, and transparent. No tricks, no vague terms, no “trust me bro.” You know exactly what you're signing.",
+      "Yes, but a real, professional contract. Everything is clear, legal, and transparent. No tricks, no vague terms, no “trust me.” You know exactly what you're signing.",
   },
   {
     question: "What does it cost to work with OnlyModels?",
