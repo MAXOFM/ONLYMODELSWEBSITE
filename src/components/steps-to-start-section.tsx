@@ -124,12 +124,6 @@ export function StepsToStartSection() {
                 style={{ height: `${scrollProgress * 100}%` }}
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
               />
-              {/* <motion.div
-                className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border border-white/40 bg-background/90 shadow-lg shadow-accent/40"
-                style={{ top: `calc(${scrollProgress * 100}% - 10px)` }}
-                animate={{ scale: 1 + scrollProgress * 0.05 }}
-                transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              /> */}
             </div>
           </div>
 
