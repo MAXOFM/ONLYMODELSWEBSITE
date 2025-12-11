@@ -16,16 +16,7 @@ type VideoTestimonial = {
 };
 
 const videoTestimonials: VideoTestimonial[] = [
-  {
-    creator: "Lisa",
-    role: "Creator",
-    stat: "+420% launch revenue",
-    quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
-    embedUrl: "https://drive.google.com/file/d/1_TqD7PWfddCtrPeY4Y5acs6_oABlUh2B/preview?autoplay=1&mute=1&loop=1",
-    aspectPadding: "177.778%",
-    length: "1:14",
-    durationMs: 68000,
-  },
+
   {
     creator: "Ana",
     role: "Creator",
@@ -45,6 +36,16 @@ const videoTestimonials: VideoTestimonial[] = [
     aspectPadding: "177.778%",
     length: "0:57",
     durationMs: 92000,
+  },
+  {
+    creator: "Lisa",
+    role: "Creator",
+    stat: "+420% launch revenue",
+    quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
+    embedUrl: "https://drive.google.com/file/d/1_TqD7PWfddCtrPeY4Y5acs6_oABlUh2B/preview?autoplay=1&mute=1&loop=1",
+    aspectPadding: "177.778%",
+    length: "1:14",
+    durationMs: 68000,
   },
 ];
 
