@@ -187,10 +187,10 @@ export function StepsToStartSection() {
                       {isActive ? "Focused" : "Preview"}
                     </span>
                   </div>
-                  <div
+                  {/* <div
                     className={`absolute -left-3 top-6 hidden h-16 w-16 rounded-full border-4 transition lg:block ${isActive ? "border-accent/70" : "border-white/10"
                       }`}
-                  />
+                  /> */}
                 </motion.button>
               );
             })}
