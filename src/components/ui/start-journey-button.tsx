@@ -1,17 +1,39 @@
 "use client";
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 
 const StartJourneyButton = () => {
+  const pathname = usePathname();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const selector = '[data-section="apply"]';
     const element = document.querySelector(selector) ?? document.getElementById('apply');
+    
     if (element) {
+      // Form exists on current page, scroll to it
       const headerOffset = 120;
       const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
       window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      // Form doesn't exist on current page (e.g., on referral page), navigate to home page
+      if (pathname !== '/') {
+        // Navigate to home page with hash - browser will handle scrolling automatically
+        window.location.href = '/#apply';
+      } else {
+        // On home page but form not found, try scrolling anyway
+        window.location.hash = 'apply';
+        setTimeout(() => {
+          const formElement = document.querySelector(selector) ?? document.getElementById('apply');
+          if (formElement) {
+            const headerOffset = 120;
+            const top = formElement.getBoundingClientRect().top + window.scrollY - headerOffset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 100);
+      }
     }
   };
 

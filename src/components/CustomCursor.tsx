@@ -57,11 +57,11 @@ const CustomCursor = () => {
     let animationFrameId: number;
     const animateOuterCircle = () => {
       if (window.innerWidth > 500) {
-        setOuterCirclePosition(prev => ({
-          x: prev.x + (mousePositionRef.current.x - prev.x) * 0.15,
-          y: prev.y + (mousePositionRef.current.y - prev.y) * 0.15,
-        }));
-        animationFrameId = requestAnimationFrame(animateOuterCircle);
+      setOuterCirclePosition(prev => ({
+        x: prev.x + (mousePositionRef.current.x - prev.x) * 0.15,
+        y: prev.y + (mousePositionRef.current.y - prev.y) * 0.15,
+      }));
+      animationFrameId = requestAnimationFrame(animateOuterCircle);
       }
     };
 
@@ -76,7 +76,7 @@ const CustomCursor = () => {
         link.removeEventListener('mouseleave', handleMouseLeave);
       });
       if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animationFrameId);
       }
       window.removeEventListener('resize', checkMobile);
     };
