@@ -34,6 +34,7 @@ export function WorkflowSection() {
     {
       name: "TikTok",
       signal: "Creator loops",
+      href: "https://www.tiktok.com/@onlymodelsusa",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
@@ -43,6 +44,7 @@ export function WorkflowSection() {
     {
       name: "Twitter",
       signal: "High-intent DM",
+      href: "https://x.com/urgirlelena",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -50,17 +52,19 @@ export function WorkflowSection() {
       ),
     },
     {
-      name: "Paid Promo",
-      signal: "Whitelist boosts",
+      name: "Telegram",
+      signal: "Direct messaging",
+      href: "https://t.me/SaraAssistantOM",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 1.5 1.5 9l10.5 7.5L22.5 9zm0 0v21" />
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
         </svg>
       ),
     },
     {
       name: "Twitch",
       signal: "Live funnel",
+      href: "#",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
@@ -70,6 +74,7 @@ export function WorkflowSection() {
     {
       name: "YouTube",
       signal: "Pin drops",
+      href: "#",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -79,6 +84,7 @@ export function WorkflowSection() {
     {
       name: "Reddit",
       signal: "Community heat",
+      href: "#",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
@@ -88,6 +94,7 @@ export function WorkflowSection() {
     {
       name: "Instagram",
       signal: "Story takeovers",
+      href: "https://www.instagram.com/onlymodels.ca/",
       icon: (
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -191,8 +198,11 @@ export function WorkflowSection() {
                   if (index === 6) mobileGridClass = "col-start-3 row-start-2";
 
                   return (
-                    <motion.div
+                    <motion.a
                       key={platform.name}
+                      href={platform.href}
+                      target={platform.href !== "#" ? "_blank" : undefined}
+                      rel={platform.href !== "#" ? "noopener noreferrer" : undefined}
                       className={`group relative flex min-h-[90px] w-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-[20px] border border-white/12 bg-gradient-to-br from-background/85 to-surface/70 px-2 py-3 text-center shadow-[0_15px_30px_rgba(8,6,15,0.35)] backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-accent/60 hover:bg-white/15 md:absolute md:min-h-[80px] md:w-[85px] md:gap-1.5 md:rounded-[16px] md:px-2.5 md:py-2.5 lg:min-h-[110px] lg:w-[120px] lg:gap-2 lg:rounded-[26px] lg:px-4 lg:py-4 !top-auto !left-auto !translate-0 md:!top-[var(--top)] md:!left-[var(--left)] md:!translate-x-[-50%] md:!translate-y-[-50%] ${mobileGridClass}`}
                       style={{
                         "--top": platform.position.top,
@@ -214,7 +224,7 @@ export function WorkflowSection() {
                           </p> */}
                         </div>
                       </div>
-                    </motion.div>
+                    </motion.a>
                   );
                 })}
               </div>

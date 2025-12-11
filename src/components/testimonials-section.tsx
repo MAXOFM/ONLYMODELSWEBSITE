@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, useInView, useInView as useFramerInView } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { CheckCircle2, Play, Star, TrendingUp } from "lucide-react";
 
 type VideoTestimonial = {
@@ -21,7 +21,7 @@ const videoTestimonials: VideoTestimonial[] = [
     role: "Creator",
     stat: "+420% launch revenue",
     quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
-    embedUrl: "https://drive.google.com/file/d/1_TqD7PWfddCtrPeY4Y5acs6_oABlUh2B/preview?autoplay=1&mute=1",
+    embedUrl: "https://drive.google.com/file/d/1_TqD7PWfddCtrPeY4Y5acs6_oABlUh2B/preview?autoplay=1&mute=1&loop=1",
     aspectPadding: "177.778%",
     length: "1:14",
     durationMs: 68000,
@@ -31,7 +31,7 @@ const videoTestimonials: VideoTestimonial[] = [
     role: "Creator",
     stat: "+38% avg order value",
     quote: "Daily reports, proactive upsells, and the calm confidence of a 24/7 team.",
-    embedUrl: "https://drive.google.com/file/d/1bLODuPjQg1lpyV-iRwGyd_xOm-HwIgxa/preview?autoplay=1&mute=1",
+    embedUrl: "https://drive.google.com/file/d/1bLODuPjQg1lpyV-iRwGyd_xOm-HwIgxa/preview?autoplay=1&mute=1&loop=1",
     aspectPadding: "179.272%",
     length: "0:39",
     durationMs: 52000,
@@ -41,7 +41,7 @@ const videoTestimonials: VideoTestimonial[] = [
     role: "Creator",
     stat: "0 ➜ Top 3% in 60 days",
     quote: "She was posting on every platform without knowing what worked. We reorganized everything for her.",
-    embedUrl: "https://drive.google.com/file/d/1jEWBSSzHe25gHywFPp2rO6jYBfi0m0F6/preview?autoplay=1&mute=1",
+    embedUrl: "https://drive.google.com/file/d/1jEWBSSzHe25gHywFPp2rO6jYBfi0m0F6/preview?autoplay=1&mute=1&loop=1",
     aspectPadding: "177.778%",
     length: "0:57",
     durationMs: 92000,
@@ -68,12 +68,17 @@ const credibilityHighlights = [
 
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLElement | null>(null);
   const videoContainerRef = useRef<HTMLDivElement | null>(null);
-  const isVideoInView = useFramerInView(videoContainerRef, { amount: 0.5 });
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
   const controls = useAnimation();
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Start loading videos immediately when component mounts
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -81,13 +86,9 @@ export function TestimonialsSection() {
     }
   }, [controls, isInView]);
 
+  // Auto-advance videos continuously
   useEffect(() => {
-    if (!isVideoInView) {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-      return;
-    }
+    if (!isMounted) return;
 
     const duration = videoTestimonials[activeIndex].durationMs;
     timerRef.current = setTimeout(() => {
@@ -99,7 +100,7 @@ export function TestimonialsSection() {
         clearTimeout(timerRef.current);
       }
     };
-  }, [activeIndex, isVideoInView]);
+  }, [activeIndex, isMounted]);
 
   const headlineVariants = {
     hidden: { opacity: 0, y: 16 },
@@ -197,15 +198,17 @@ export function TestimonialsSection() {
                     className="relative w-full"
                     style={{ paddingBottom: videoTestimonials[activeIndex].aspectPadding }}
                   >
-                    {isVideoInView && (
+                    {isMounted && (
                       <iframe
-                        key={videoTestimonials[activeIndex].embedUrl}
-                        src={`${videoTestimonials[activeIndex].embedUrl}?autoplay=1&mute=1`}
-                        allow="autoplay; fullscreen"
-                        loading="lazy"
+                        key={`${videoTestimonials[activeIndex].embedUrl}-${activeIndex}`}
+                        src={videoTestimonials[activeIndex].embedUrl}
+                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        loading="eager"
                         referrerPolicy="no-referrer"
                         className="absolute left-0 top-0 h-full w-full rounded-[34px] border-0"
                         title={`${videoTestimonials[activeIndex].creator} testimonial`}
+                        style={{ pointerEvents: 'auto' }}
                       />
                     )}
                   </div>
