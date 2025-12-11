@@ -275,18 +275,6 @@ export function ComprehensiveGrowth() {
                             className={`flex flex-col gap-1 lg:items-center ${index % 2 === 1 ? "lg:flex-row-reverse max-[500px]:mb-[20px]" : "lg:flex-row max-[500px]:mb-[20px]"
                                 }`}
                         >
-                            {/* Visual Side */}
-                            <div className="flex-1">
-                                <div className="relative aspect-square w-full max-w-md mx-auto transform transition-transform duration-500 hover:scale-[1.02]">
-                                    <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-br from-accent/20 to-accent-secondary/20 blur-2xl opacity-50" />
-
-                                    {feature.type === "consulting" && <StrategyBoard />}
-                                    {feature.type === "growth" && <GrowthRoadmap />}
-                                    {feature.type === "chatters" && <CoverageTimeline />}
-                                    {feature.type === "compliance" && <CompliancePanel />}
-                                </div>
-                            </div>
-
                             {/* Content Side */}
                             <div className="flex-1 space-y-8 text-center lg:text-left max-[1200px]:p-[10%]">
                                 <div className="flex flex-col items-center space-y-4 lg:items-start">
@@ -345,6 +333,20 @@ export function ComprehensiveGrowth() {
                                     <StartJourneyButton />
                                 </div>
                             </div>
+
+                            
+                            {/* Visual Side */}
+                            <div className="flex-1">
+                                <div className="relative aspect-square w-full max-w-md mx-auto transform transition-transform duration-500 hover:scale-[1.02]">
+                                    <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-br from-accent/20 to-accent-secondary/20 blur-2xl opacity-50" />
+
+                                    {feature.type === "consulting" && <StrategyBoard />}
+                                    {feature.type === "growth" && <GrowthRoadmap />}
+                                    {feature.type === "chatters" && <CoverageTimeline />}
+                                    {feature.type === "compliance" && <CompliancePanel />}
+                                </div>
+                            </div>
+
                         </motion.div>
                     );
                 })}

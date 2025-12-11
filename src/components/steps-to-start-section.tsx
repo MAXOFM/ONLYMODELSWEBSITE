@@ -30,7 +30,7 @@ const steps = [
   {
     id: 4,
     icon: PenTool,
-    title: "W Setup & Optimization",
+    title: "We Setup & Optimization",
     description: "We collect your inspiration and content, connect your account, and optimize everything: bio, pricing, menu, automations, PPVs, and overall profile setup.",
     meta: "Zero upfront",
   },
