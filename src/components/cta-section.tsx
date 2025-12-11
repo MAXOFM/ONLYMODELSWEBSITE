@@ -99,7 +99,7 @@ export function CallToActionSection() {
             </p>
           </div>
           <div className="relative mt-10 flex flex-col items-center justify-center gap-4 md:flex-row">
-            <LightningButton label="Apply Now" href="mailto:launch@onlymodels.app" />
+            <LightningButton label="Apply Now" />
             {/* <button className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/10 px-10 py-4 text-lg font-semibold text-foreground transition hover:border-accent/50 hover:text-accent max-[500px]:text-[12px]">
               <span>+1 438 778 4338</span>
             </button> */}
