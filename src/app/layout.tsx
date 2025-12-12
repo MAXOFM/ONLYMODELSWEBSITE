@@ -66,6 +66,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <script src="https://player.vimeo.com/api/player.js" async></script>
       </head>
       <body className={`${inter.variable} ${outfit.variable} bg-background text-foreground antialiased`}>
         <CustomCursor />

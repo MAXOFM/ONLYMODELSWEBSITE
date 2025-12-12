@@ -16,14 +16,23 @@ type VideoTestimonial = {
 };
 
 const videoTestimonials: VideoTestimonial[] = [
-
+  {
+    creator: "Lisa",
+    role: "Creator",
+    stat: "+420% launch revenue",
+    quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
+    embedUrl: "https://player.vimeo.com/video/1145767975?autoplay=1&mute=1&loop=1&controls=1&badge=0&autopause=0",
+    aspectPadding: "177.78%",
+    length: "1:14",
+    durationMs: 68000,
+  },
   {
     creator: "Ana",
     role: "Creator",
     stat: "+38% avg order value",
     quote: "Daily reports, proactive upsells, and the calm confidence of a 24/7 team.",
-    embedUrl: "https://drive.google.com/file/d/1bLODuPjQg1lpyV-iRwGyd_xOm-HwIgxa/preview?autoplay=1&mute=1&loop=1",
-    aspectPadding: "179.272%",
+    embedUrl: "https://player.vimeo.com/video/1145769893?autoplay=1&mute=1&loop=1&controls=1&badge=0&autopause=0",
+    aspectPadding: "179%",
     length: "0:39",
     durationMs: 52000,
   },
@@ -36,16 +45,6 @@ const videoTestimonials: VideoTestimonial[] = [
     aspectPadding: "177.778%",
     length: "0:57",
     durationMs: 92000,
-  },
-  {
-    creator: "Lisa",
-    role: "Creator",
-    stat: "+420% launch revenue",
-    quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
-    embedUrl: "https://drive.google.com/file/d/1_TqD7PWfddCtrPeY4Y5acs6_oABlUh2B/preview?autoplay=1&mute=1&loop=1",
-    aspectPadding: "177.778%",
-    length: "1:14",
-    durationMs: 68000,
   },
 ];
 
@@ -222,15 +221,16 @@ export function TestimonialsSection() {
                       <iframe
                         key={`${videoTestimonials[activeIndex].embedUrl}-${activeIndex}`}
                         src={videoTestimonials[activeIndex].embedUrl}
-                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                         allowFullScreen
                         loading="eager"
-                        referrerPolicy="no-referrer"
+                        referrerPolicy="strict-origin-when-cross-origin"
                         className="absolute left-0 top-0 h-full w-full rounded-[34px] border-0"
                         title={`${videoTestimonials[activeIndex].creator} testimonial`}
                         style={{ 
                           pointerEvents: 'auto'
                         }}
+                        frameBorder="0"
                       />
                     )}
                   </div>
