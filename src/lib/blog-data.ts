@@ -1157,7 +1157,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: "Instagram Hashtag Strategy (2026): Reach Explore Page and FYP",
     metaDescription: "Learn the best Instagram hashtag strategy in 2026 to reach Explore Page and FYP style recommendations with niche specific hashtags that label your content correctly.",
     url: "/blog/instagram-hashtag-strategy-2026",
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=675&fit=crop",
+    image: "/assets/blog/content.webp",
     date: "2026-01-01",
     readTime: "10 min read",
     category: "Getting Started"
