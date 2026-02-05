@@ -23,12 +23,12 @@ export function BlogCard({ post, index }: BlogCardProps) {
         <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-background/80 via-background/60 to-background/80 backdrop-blur-md transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_40px_rgba(255,20,147,0.15)]">
           {/* Image Container */}
           <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-accent/5 to-accent-secondary/5">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl font-bold text-accent/10">
-                {post.category.charAt(0)}
-              </div>
-            </div>
             {/* Hover Effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </div>

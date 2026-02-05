@@ -54,7 +54,7 @@ const contactInfo = [
 const socials = [
   { icon: Instagram, href: "https://www.instagram.com/onlymodels.ca/", label: "Instagram" },
   { icon: TikTokLogo, href: "https://www.tiktok.com/@onlymodelsusa", label: "TikTok" },
-  { icon: XLogo, href: "https://x.com/urgirlelena", label: "X (Twitter)" },
+  { icon: XLogo, href: "https://x.com/onlymodelsca", label: "X (Twitter)" },
   { icon: TelegramLogo, href: "https://t.me/SaraAssistantOM", label: "Telegram" },
 ];
 

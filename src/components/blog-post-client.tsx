@@ -29,11 +29,28 @@ export function BlogPostClient({ post }: BlogPostClientProps) {
           </Link>
         </motion.div>
 
+        {/* Featured Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 overflow-hidden rounded-[32px] border border-white/10"
+        >
+          <div className="relative aspect-[21/9] overflow-hidden bg-gradient-to-br from-accent/5 to-accent-secondary/5">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+          </div>
+        </motion.div>
+
         {/* Article Header */}
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-12 space-y-6"
         >
           {/* Category Badge */}
