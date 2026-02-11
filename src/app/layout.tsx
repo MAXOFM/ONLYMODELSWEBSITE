@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     "OnlyFans Chatters",
   ],
   icons: {
-    icon: "/assets/favicon.webp",
-    shortcut: "/assets/favicon.webp",
-    apple: "/assets/favicon.webp",
+    icon: "/favicon.ico?v=2",
+    shortcut: "/favicon.ico?v=2",
+    apple: "/favicon.ico?v=2",
   },
   openGraph: {
     title: "OnlyModels — The Agency Creators Trust",
