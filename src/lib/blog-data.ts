@@ -28,6 +28,7 @@ export const blogPosts: BlogPost[] = [
     id: "onlyfans-retention-engine-2026",
     title: "The OnlyFans Retention Engine (2026): How to Reduce Churn and Keep Subscribers Paying 3+ Months",
     excerpt: "Learn how to reduce churn, improve OnlyFans subscriber retention, increase renewals, and build long-term income with a proven retention strategy in 2026.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop",
     content: {
       h1: "The OnlyFans Retention Engine (2026): How to Reduce Churn and Keep Subscribers Paying 3+ Months",
       introText: [
@@ -184,7 +185,6 @@ export const blogPosts: BlogPost[] = [
     seoTitle: "The OnlyFans Retention Engine (2026): Reduce Churn and Keep Subscribers Paying Longer",
     metaDescription: "Learn how to reduce churn, improve OnlyFans subscriber retention, increase renewals, and build long-term income with a proven retention strategy in 2026.",
     url: "/blog/onlyfans-retention-engine-2026",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop",
     date: "2026-02-20",
     readTime: "14 min read",
     category: "Growth Tips"
@@ -193,6 +193,7 @@ export const blogPosts: BlogPost[] = [
     id: "canadian-onlyfans-advantage-2026",
     title: "Why Canadian OnlyFans Creators Have a Major Advantage in 2026",
     excerpt: "Discover why OnlyFans creators in Canada have a competitive advantage in 2026, including lower saturation, bilingual reach, and strong organic promotion opportunities.",
+    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&h=675&fit=crop",
     content: {
       h1: "Why Canadian OnlyFans Creators Have a Major Advantage in 2026",
       introText: [
@@ -303,7 +304,6 @@ export const blogPosts: BlogPost[] = [
     seoTitle: "Why Canadian OnlyFans Creators Have an Advantage in 2026",
     metaDescription: "Discover why OnlyFans creators in Canada have a competitive advantage in 2026, including lower saturation, bilingual reach, and strong organic promotion opportunities.",
     url: "/blog/canadian-onlyfans-advantage-2026",
-    image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1200&h=675&fit=crop",
     date: "2026-02-16",
     readTime: "14 min read",
     category: "Market Insights"
