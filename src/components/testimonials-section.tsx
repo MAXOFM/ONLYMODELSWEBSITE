@@ -37,16 +37,16 @@ const videoTestimonials: VideoTestimonial[] = [
     length: "0:57",
     durationMs: 92000,
   },
-  {
-    creator: "Lisa",
-    role: "Creator",
-    stat: "+420% launch revenue",
-    quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
-    embedUrl: "https://player.vimeo.com/video/1145767975?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
-    aspectPadding: "177.78%",
-    length: "1:14",
-    durationMs: 68000,
-  },
+  // {
+  //   creator: "Lisa",
+  //   role: "Creator",
+  //   stat: "+420% launch revenue",
+  //   quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
+  //   embedUrl: "https://player.vimeo.com/video/1145767975?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
+  //   aspectPadding: "177.78%",
+  //   length: "1:14",
+  //   durationMs: 68000,
+  // },
 ];
 
 const credibilityHighlights = [
