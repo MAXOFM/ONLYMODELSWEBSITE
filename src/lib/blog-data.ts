@@ -1445,8 +1445,8 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-01",
     readTime: "10 min read",
     category: "Getting Started"
-  }
-];
+  },
+
 {
     id: "onlyfans-agency-montreal-2026",
     title: "Best OnlyFans Agency in Montreal (2026): How to Scale Your Income With Local Experts",
