@@ -3,9 +3,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
+import dynamic from "next/dynamic";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-code" }); // Using Outfit as secondary/display font mapping to code var for now or define new var
+const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-code", display: "swap" });
+
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
+const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then(m => ({ default: m.SmoothScroll })), { ssr: false });
 
 export const metadata: Metadata = {
   title: "OnlyModels — The Agency Creators Trust",
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
     title: "OnlyModels — The Agency Creators Trust",
     description:
       "Scale your OnlyFans with the top 0.1% agency. AI-powered growth, dedicated U.S. chatters, and full transparency.",
-    url: "https://onlymodels.app",
+    url: "https://onlymodels.ca",
     siteName: "OnlyModels",
     locale: "en_US",
     type: "website",
@@ -42,10 +46,6 @@ export const metadata: Metadata = {
       "Scale your OnlyFans with the top 0.1% agency. AI-powered growth, dedicated U.S. chatters, and full transparency.",
   },
 };
-
-import { SmoothScroll } from "@/components/smooth-scroll";
-import CustomCursor from "@/components/CustomCursor";
-
 
 export default function RootLayout({
   children,
@@ -71,7 +71,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <script src="https://player.vimeo.com/api/player.js" async></script>
+        <script src="https://player.vimeo.com/api/player.js" defer></script>
       </head>
       <body className={`${inter.variable} ${outfit.variable} bg-background text-foreground antialiased`}>
         <CustomCursor />
