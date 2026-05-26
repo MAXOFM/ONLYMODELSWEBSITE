@@ -224,7 +224,7 @@ export function TestimonialsSection() {
                         src={videoTestimonials[activeIndex].embedUrl}
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                         allowFullScreen
-                        loading="eager"
+                        loading="lazy"
                         referrerPolicy="strict-origin-when-cross-origin"
                         className="absolute left-0 top-0 h-full w-full rounded-[34px] border-0"
                         title={`${videoTestimonials[activeIndex].creator} testimonial`}
