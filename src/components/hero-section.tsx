@@ -1,12 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatedCTA } from "@/components/animated-cta-button";
 import { HeroPhraseAnimations } from "@/components/hero-phrase-animations";
-import { InteractiveHeroBackground } from "@/components/interactive-hero-background";
 import { HeroVisuals } from "@/components/hero-visuals";
 import { motion } from "framer-motion";
 import StartJourneyButton from "./ui/start-journey-button";
+import dynamic from "next/dynamic";
+
+const InteractiveHeroBackground = dynamic(
+  () => import("@/components/interactive-hero-background").then(m => ({ default: m.InteractiveHeroBackground })),
+  { ssr: false }
+);
 
 const rotatingPhrases = [
   "Without Stress",
@@ -23,8 +27,7 @@ function HeroSection() {
       <div className="pointer-events-none relative z-10 flex w-full justify-center mb-8 md:absolute md:top-24 md:mb-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           suppressHydrationWarning
           className="relative flex items-center justify-center max-[500px]:px-[35px]"
@@ -38,6 +41,7 @@ function HeroSection() {
             className="h-auto w-60 object-contain drop-shadow-[0_0_45px_rgba(255,105,180,0.6)] md:w-[320px]"
             style={{ width: "auto" }}
             priority
+            fetchPriority="high"
           />
         </motion.div>
       </div>
@@ -45,16 +49,14 @@ function HeroSection() {
       <div className="nav-shell relative z-10 mt-10 flex flex-col items-center gap-12 md:mt-28 md:gap-12 px-6 text-center md:flex-col md:text-center xl:mt-0 xl:flex-row xl:gap-28 xl:text-left">
         <motion.div
           initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           suppressHydrationWarning
           className="flex flex-1 flex-col items-center gap-6 md:items-center xl:items-start"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             suppressHydrationWarning
             className="glass-pill px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-secondary shadow-[0_0_20px_rgba(255,20,147,0.3)]"
@@ -70,12 +72,8 @@ function HeroSection() {
           </h1>
 
           <div className="flex flex-col gap-2 text-sm font-medium text-muted md:text-base md:text-center xl:text-left">
-            <p>
-              Are you posting, chatting, promoting and managing DMs all by yourself?
-            </p>
-            <p className="text-foreground">
-              We Take over the work so you can earn more while doing less.
-            </p>
+            <p>Are you posting, chatting, promoting and managing DMs all by yourself?</p>
+            <p className="text-foreground">We Take over the work so you can earn more while doing less.</p>
           </div>
 
           <p className="text-sm font-medium text-muted md:text-base md:text-center xl:text-left">
@@ -84,23 +82,20 @@ function HeroSection() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             suppressHydrationWarning
             className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center xl:justify-start xl:items-start"
           >
-            {/* <AnimatedCTA href="#apply" text="APPLY NOW" /> */}
             <div className="flex justify-center mt-5">
               <StartJourneyButton/>
-          </div>
+            </div>
           </motion.div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut", type: "spring", bounce: 0.4 }}
           suppressHydrationWarning
           className="relative flex-1 flex justify-center w-full md:justify-center md:mt-8 xl:mt-0 xl:justify-end md:ml-0 xl:-ml-8 2xl:ml-0"
