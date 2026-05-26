@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
-import dynamic from "next/dynamic";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-code", display: "swap" });
 
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
-const SmoothScroll = dynamic(() => import("@/components/smooth-scroll").then(m => ({ default: m.SmoothScroll })), { ssr: false });
+import { SmoothScroll } from "@/components/smooth-scroll";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "OnlyModels — The Agency Creators Trust",
