@@ -1714,3 +1714,4 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     category: "Market Insights"
   }
+];
