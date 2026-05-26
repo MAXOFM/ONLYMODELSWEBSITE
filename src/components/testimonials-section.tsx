@@ -16,7 +16,6 @@ type VideoTestimonial = {
 };
 
 const videoTestimonials: VideoTestimonial[] = [
-
   {
     creator: "Ana",
     role: "Creator",
@@ -37,34 +36,12 @@ const videoTestimonials: VideoTestimonial[] = [
     length: "0:57",
     durationMs: 92000,
   },
-  // {
-  //   creator: "Lisa",
-  //   role: "Creator",
-  //   stat: "+420% launch revenue",
-  //   quote: "How we rebuilt her chat scripts and pricing ladder so every fan felt VIP.",
-  //   embedUrl: "https://player.vimeo.com/video/1145767975?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
-  //   aspectPadding: "177.78%",
-  //   length: "1:14",
-  //   durationMs: 68000,
-  // },
 ];
 
 const credibilityHighlights = [
-  {
-    label: "Creator satisfaction",
-    value: "4.9/5",
-    icon: Star,
-  },
-  {
-    label: "Average uplift",
-    value: "+38%",
-    icon: TrendingUp,
-  },
-  {
-    label: "Creator retention",
-    value: "98%",
-    icon: CheckCircle2,
-  },
+  { label: "Creator satisfaction", value: "4.9/5", icon: Star },
+  { label: "Average uplift", value: "+38%", icon: TrendingUp },
+  { label: "Creator retention", value: "98%", icon: CheckCircle2 },
 ];
 
 export function TestimonialsSection() {
@@ -76,10 +53,11 @@ export function TestimonialsSection() {
   const controls = useAnimation();
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Start loading videos immediately when component mounts
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    if (isInView) {
+      setIsMounted(true);
+    }
+  }, [isInView]);
 
   useEffect(() => {
     if (isInView) {
@@ -87,7 +65,6 @@ export function TestimonialsSection() {
     }
   }, [controls, isInView]);
 
-  // Auto-advance videos continuously
   useEffect(() => {
     if (!isMounted) return;
 
@@ -151,11 +128,7 @@ export function TestimonialsSection() {
           animate={controls}
           variants={{
             hidden: { opacity: 0, y: 24 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.6, delayChildren: 0.1, staggerChildren: 0.05 },
-            },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6, delayChildren: 0.1, staggerChildren: 0.05 } },
           }}
           className="mx-auto mb-16 flex flex-wrap items-center justify-center gap-4"
         >
@@ -170,9 +143,7 @@ export function TestimonialsSection() {
                   <Icon className="h-4 w-4" />
                 </span>
                 <div className="flex flex-1 items-center justify-between text-left md:flex-none md:flex-col md:items-start md:justify-center">
-                  <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
-                    {highlight.label}
-                  </p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">{highlight.label}</p>
                   <p className="text-base font-semibold text-foreground">{highlight.value}</p>
                 </div>
               </motion.div>
@@ -194,29 +165,20 @@ export function TestimonialsSection() {
               </div>
               <div className="relative mx-auto w-full max-w-[330px] overflow-hidden rounded-[34px] border border-white/15 bg-black/70 shadow-[0_20px_60px_rgba(14,14,20,0.35)] sm:max-w-[360px]">
                 <div className="absolute -inset-2 rounded-[40px] bg-gradient-to-tr from-accent/30 via-transparent to-accent-secondary/30 opacity-60 blur-2xl" />
-                <div 
-                  ref={videoContainerRef} 
+                <div
+                  ref={videoContainerRef}
                   className="relative rounded-[34px] border border-white/15 bg-black/80 overflow-hidden"
                   onWheel={(e) => {
-                    // Prevent iframe from capturing scroll when scrolling over video area
-                    // Only prevent if scrolling (not clicking)
                     if (Math.abs(e.deltaY) > 0) {
                       e.preventDefault();
                       e.stopPropagation();
-                      // Pass scroll to window for smooth page scrolling
-                      window.scrollBy({
-                        top: e.deltaY,
-                        behavior: 'auto'
-                      });
+                      window.scrollBy({ top: e.deltaY, behavior: 'auto' });
                     }
                   }}
                 >
                   <div
                     className="relative w-full"
-                    style={{ 
-                      paddingBottom: videoTestimonials[activeIndex].aspectPadding,
-                      overflow: 'hidden'
-                    }}
+                    style={{ paddingBottom: videoTestimonials[activeIndex].aspectPadding, overflow: 'hidden' }}
                   >
                     {isMounted && (
                       <iframe
@@ -228,9 +190,7 @@ export function TestimonialsSection() {
                         referrerPolicy="strict-origin-when-cross-origin"
                         className="absolute left-0 top-0 h-full w-full rounded-[34px] border-0"
                         title={`${videoTestimonials[activeIndex].creator} testimonial`}
-                        style={{ 
-                          pointerEvents: 'auto'
-                        }}
+                        style={{ pointerEvents: 'auto' }}
                         frameBorder="0"
                       />
                     )}
